@@ -48,11 +48,41 @@ public class AppManager {
     }
 
     /**
+     * finish指定activity
+     *
      * @param activity
      */
     private void finishActivity(Activity activity) {
-        if (activity != null && !activity.isFinishing())
+        if (activity != null && !activity.isFinishing()) {
             activity.finish();
+            activityStack.remove(activity);
+        }
+    }
+
+    private void finishActivity(Class<? extends Activity> clazz) {
+        for (Activity activity : activityStack) {
+            if (activity.getClass().equals(clazz)) {
+                finishActivity(activity);
+            }
+        }
+    }
+
+    private void finishAllActivity() {
+        for (int i = 0; i < activityStack.size(); i++) {
+            if (null != activityStack.get(i)) {
+                finishActivity(activityStack.get(i));
+            }
+        }
+    }
+
+    /**
+     * 退出应用
+     */
+    private void exitApp() {
+        finishAllActivity(); //关闭所有activity
+        android.os.Process.killProcess(android.os.Process.myPid());//android结束进程
+        System.exit(0); //0:正常退出
+
     }
 
 
