@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MVVMDemo</string>
+    <string name="compose_shortcut_short_label">label</string>
+    <string name="compose_disabled_message">message</string>
 </resources>
