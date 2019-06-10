@@ -14,7 +14,6 @@ public class TypeUtil {
      * @return
      */
     public static <T> T getClassType(Object object, int index) {
-        T clazz;
         //获取集成的(上层)类
         Type superclass = object.getClass().getGenericSuperclass();
         //ParameterizedType参数化类型,暂时理解为类上是否有泛型
@@ -23,15 +22,5 @@ public class TypeUtil {
             return (T) ((ParameterizedType) superclass).getActualTypeArguments()[index];
         }
         return null;
-    }
-
-    public static <T> T getInstance(Object object, int i) {
-        if (object != null) {
-            return (T) ((ParameterizedType) object.getClass()
-                    .getGenericSuperclass())
-                    .getActualTypeArguments()[i];
-        }
-        return null;
-
     }
 }
