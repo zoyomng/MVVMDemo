@@ -1,88 +1,90 @@
 package com.zoyo.core.base;
 
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
-import com.bumptech.glide.Glide;
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.zoyo.core.utils.TypeUtil;
 
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-
-public abstract class BaseActivity<VM extends BaseViewModel> extends AppCompatActivity {
+public abstract class BaseActivity<VM extends BaseViewModel> extends RxAppCompatActivity implements IBaseView {
 
     private VM viewModel;
+    private ViewDataBinding dataBinding;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initViewDataBinding();
+        //初始化DataBinding
+        initViewDataBinding(savedInstanceState);
+        //初始化数据
+        initData();
     }
 
     /**
      * 注入绑定
+     *
+     * @param savedInstanceState
      */
-    private void initViewDataBinding() {
+    private void initViewDataBinding(Bundle savedInstanceState) {
         //DataBindingUtil类需要在project-build中配置DataBinding{enabled true},同步后会自动关联android.databinding包
-        ViewDataBinding dataBinding = DataBindingUtil.setContentView(this, getLayoutId());
+        dataBinding = DataBindingUtil.setContentView(this, getLayoutId(savedInstanceState));
         //RxAppCompatActivity->SupportActivity->FragmentActivity->SupportActivity->implements LifecycleOwner.设置LifecycleOwner,LifecycleOwner可以观察LiveData数据的变化以更新UI
         dataBinding.setLifecycleOwner(this);
 
         //获取ViewModel
-        viewModel = (VM) ViewModelProviders.of(this).get(getTypeClass());
+        viewModel = (VM) ViewModelProviders.of(this).get(TypeUtil.getTypeClass(this, 0, BaseViewModel.class));
 
+        //关联ViewModel
+        int viewModelId = initViewModelId();
+        dataBinding.setVariable(viewModelId, viewModel);
+        //让ViewModel拥有View的生命周期感应
+        getLifecycle().addObserver(viewModel);
+        //注入RxLifecycle生命周期
+        viewModel.injectLifecycleProvider(this);
     }
 
     /**
-     * 获取ViewModel的Class
+     * 布局文件中设置ViewModel变量
+     * <data>
+     * <variable
+     * name="viewModel"
+     * type="ViewModel" />
+     * </data>
+     * <p>
+     * 使用方式:
      *
      * @return
+     * @Override public int initVariableId() {
+     * return BR.viewModel;
+     * }
+     * <p>
+     * 以上抽取相当于在继承BaseActivity的类中:DataBinding.setViewModel(viewModel)
      */
-    private Class getTypeClass() {
-        Class modelClass;
-        //获取集成的(上层)类
-        Type superclass = getClass().getGenericSuperclass();
-        //ParameterizedType参数化类型,暂时理解为类上是否有泛型
-        if (superclass instanceof ParameterizedType) {
-            //获取的即是泛型<Class>中的Class类型,index指定泛型<String,String..>第几个Type
-            modelClass = (Class) ((ParameterizedType) superclass).getActualTypeArguments()[0];
-        } else {
-            modelClass = BaseViewModel.class;
-        }
-        return modelClass;
-    }
+    protected abstract int initViewModelId();
 
     /**
      * 页面布局
      *
+     * @param savedInstanceState 保存的状态数据
      * @return
      */
-    protected abstract int getLayoutId();
+    protected abstract int getLayoutId(Bundle savedInstanceState);
 
     @Override
-    protected void onStop() {
-        super.onStop();
-        System.out.println("++++++++++onStop+++++++++++");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        System.out.println("++++++++++onPause+++++++++++");
+    public void initData() {
 
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        System.out.println("++++++++++onDestroy+++++++++++");
-
+        //解除ViewModel生命周期感应
+        getLifecycle().removeObserver(viewModel);
+        if (dataBinding != null) {
+            dataBinding.unbind();
+        }
     }
 }

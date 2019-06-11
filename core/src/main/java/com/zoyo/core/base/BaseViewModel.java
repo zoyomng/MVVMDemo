@@ -6,18 +6,103 @@ import android.arch.lifecycle.Lifecycle;
 import android.arch.lifecycle.LifecycleOwner;
 import android.support.annotation.NonNull;
 
-public class BaseViewModel extends AndroidViewModel implements IBaseViewModel{
+import com.trello.rxlifecycle2.LifecycleProvider;
+import com.zoyo.core.utils.TypeUtil;
+
+import java.lang.ref.WeakReference;
+
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+
+/**
+ * @param <M>
+ */
+public class BaseViewModel<M extends BaseModel> extends AndroidViewModel implements IBaseViewModel, Consumer<Disposable> {
+    //弱引用持有
+    private WeakReference<LifecycleProvider> lifecycle;
+    private CompositeDisposable compositeDisposable;
+    private final M model;
+
     public BaseViewModel(@NonNull Application application) {
         super(application);
+
+        //获取泛型中Model对象
+        model = TypeUtil.getClassType(this, 0);
+    }
+
+
+    void injectLifecycleProvider(LifecycleProvider lifecycle) {
+        this.lifecycle = new WeakReference<>(lifecycle);
     }
 
     @Override
+    public void accept(Disposable disposable) throws Exception {
+        addSubscribe(disposable);
+    }
+
+    private void addSubscribe(Disposable disposable) {
+        if (compositeDisposable == null) {
+            compositeDisposable = new CompositeDisposable();
+        }
+        compositeDisposable.add(disposable);
+    }
+
+    /**
+     * ViewModel在Activity因为一些配置参数改变而被销毁和重建,则ViewModel不会被销毁,新建的Activity实例仍然持有这个旧的ViewModel;
+     * 如果被销毁没有被重建,将会调用onCleared(),It is useful when ViewModel observes some data and you need to clear this subscription to
+     * prevent a leak of this ViewModel.
+     */
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        if (model != null) {
+            model.onCleared();
+        }
+        //ViewModel销毁时取消所有订阅
+        if (compositeDisposable != null) {
+            compositeDisposable.clear();
+        }
+
+    }
+
+    /**
+     * 生命周期onCreate(),onStart(),onResume()是在对应Activity的生命周期方法调用后执行,
+     * onPause(),onStop(),onDestroy()是在对应Activity的生命周期方法调用之前执行
+     *
+     * @param owner
+     * @param event
+     */
+    @Override
     public void onAny(LifecycleOwner owner, Lifecycle.Event event) {
-        System.out.println("=========onAny===========");
     }
 
     @Override
     public void onCreate() {
-        System.out.println("=========onCreate===========");
+    }
+
+    @Override
+    public void onStart() {
+
+    }
+
+    @Override
+    public void onResume() {
+
+    }
+
+    @Override
+    public void onPause() {
+
+    }
+
+    @Override
+    public void onStop() {
+
+    }
+
+    @Override
+    public void onDestroy() {
+
     }
 }

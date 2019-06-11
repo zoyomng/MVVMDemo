@@ -5,6 +5,10 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="com.zoyo.mvvmdemo.viewModel.MainViewModel" />
+
     </data>
 
     <android.support.constraint.ConstraintLayout

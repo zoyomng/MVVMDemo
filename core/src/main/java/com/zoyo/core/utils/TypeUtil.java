@@ -2,6 +2,8 @@ package com.zoyo.core.utils;
 
 import android.arch.lifecycle.ViewModel;
 
+import com.zoyo.core.base.BaseViewModel;
+
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
@@ -22,5 +24,24 @@ public class TypeUtil {
             return (T) ((ParameterizedType) superclass).getActualTypeArguments()[index];
         }
         return null;
+    }
+
+    /**
+     * 获取ViewModel的Class
+     *
+     * @return
+     */
+    public static Class getTypeClass(Object object, int index, Class clazz) {
+        Class modelClass;
+        //获取集成的(上层)类
+        Type superclass = object.getClass().getGenericSuperclass();
+        //ParameterizedType参数化类型,暂时理解为类上是否有泛型
+        if (superclass instanceof ParameterizedType) {
+            //获取的即是泛型<Class>中的Class类型,index指定泛型<String,String..>第几个Type
+            modelClass = (Class) ((ParameterizedType) superclass).getActualTypeArguments()[index];
+        } else {
+            modelClass = clazz;
+        }
+        return modelClass;
     }
 }
