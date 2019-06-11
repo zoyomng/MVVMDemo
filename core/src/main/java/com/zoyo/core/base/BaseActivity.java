@@ -35,7 +35,7 @@ public abstract class BaseActivity<VM extends BaseViewModel> extends RxAppCompat
         dataBinding.setLifecycleOwner(this);
 
         //获取ViewModel
-        viewModel = (VM) ViewModelProviders.of(this).get(TypeUtil.getTypeClass(this, 0, BaseViewModel.class));
+        viewModel = initViewModel();
 
         //关联ViewModel
         int viewModelId = initViewModelId();
@@ -44,6 +44,10 @@ public abstract class BaseActivity<VM extends BaseViewModel> extends RxAppCompat
         getLifecycle().addObserver(viewModel);
         //注入RxLifecycle生命周期
         viewModel.injectLifecycleProvider(this);
+    }
+
+    private VM initViewModel() {
+        return (VM) ViewModelProviders.of(this).get(TypeUtil.getTypeClass(this, 0, BaseViewModel.class));
     }
 
     /**
