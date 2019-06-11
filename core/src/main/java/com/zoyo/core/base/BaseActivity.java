@@ -17,6 +17,7 @@ public abstract class BaseActivity<VM extends BaseViewModel> extends RxAppCompat
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AppManager.getInstance().addActivity(this);
         //初始化DataBinding
         initViewDataBinding(savedInstanceState);
         //初始化数据
@@ -90,5 +91,6 @@ public abstract class BaseActivity<VM extends BaseViewModel> extends RxAppCompat
         if (dataBinding != null) {
             dataBinding.unbind();
         }
+        AppManager.getInstance().removeActivity(this);
     }
 }

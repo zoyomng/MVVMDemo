@@ -19,7 +19,7 @@ public class AppManager {
         private static final AppManager instance = new AppManager();
     }
 
-    private void addActivity(Activity activity) {
+    void addActivity(Activity activity) {
         if (activityStack == null) {
             activityStack = new Stack<>();
         }
@@ -42,7 +42,7 @@ public class AppManager {
      *
      * @param activity
      */
-    private void removeActivity(Activity activity) {
+    void removeActivity(Activity activity) {
         if (activity != null)
             activityStack.remove(activity);
     }
