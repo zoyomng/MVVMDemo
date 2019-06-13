@@ -60,7 +60,7 @@ public class BaseViewModel<M extends BaseModel> extends AndroidViewModel impleme
             model.onCleared();
         }
         //ViewModel销毁时取消所有订阅
-        if (compositeDisposable != null) {
+        if (compositeDisposable != null && !compositeDisposable.isDisposed()) {
             compositeDisposable.clear();
         }
 
