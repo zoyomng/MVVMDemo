@@ -43,7 +43,7 @@ public abstract class BaseFragment<VM extends BaseViewModel> extends RxFragment 
     }
 
     private VM initViewModel() {
-        return (VM) ViewModelProviders.of(this).get(TypeUtil.getTypeClass(this, 0, BaseViewModel.class));
+        return (VM) ViewModelProviders.of(this).get(TypeUtil.getClassType(this, 0, BaseViewModel.class));
     }
 
     protected abstract int initVariableId();

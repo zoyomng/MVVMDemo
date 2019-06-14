@@ -1,8 +1,11 @@
 package com.zoyo.mvvmdemo.app;
 
-import android.app.Application;
+import com.zoyo.common.application.BaseApplication;
+import com.zoyo.mvvmdemo.BuildConfig;
+import com.zoyo.mvvmdemo.model.API;
+import com.zoyo.net.RetrofitConfigs;
 
-public class MyApplication extends Application {
+public class MyApplication extends BaseApplication {
 
     MyApplication instance;
 
@@ -11,5 +14,13 @@ public class MyApplication extends Application {
         super.onCreate();
         instance = this;
         InitializeService.start(this);
+
+        RetrofitConfigs.getInstance()
+                .connectTimeout(10)
+                .writeTimeout(20)
+                .readTimeout(20)
+                .showLog(BuildConfig.DEBUG)
+                .baseUrl(API.BASE_URL)
+                .token("");
     }
 }

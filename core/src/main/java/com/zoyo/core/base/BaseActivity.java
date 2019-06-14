@@ -48,7 +48,7 @@ public abstract class BaseActivity<VM extends BaseViewModel> extends RxAppCompat
     }
 
     private VM initViewModel() {
-        return (VM) ViewModelProviders.of(this).get(TypeUtil.getTypeClass(this, 0, BaseViewModel.class));
+        return (VM) ViewModelProviders.of(this).get(TypeUtil.getClassType(this, 0, BaseViewModel.class));
     }
 
     /**

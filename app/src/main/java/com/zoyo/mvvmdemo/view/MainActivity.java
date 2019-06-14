@@ -2,6 +2,7 @@ package com.zoyo.mvvmdemo.view;
 
 import android.os.Bundle;
 
+import com.bumptech.glide.Glide;
 import com.zoyo.core.base.BaseActivity;
 import com.zoyo.mvvmdemo.BR;
 import com.zoyo.mvvmdemo.R;

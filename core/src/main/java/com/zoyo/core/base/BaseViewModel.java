@@ -18,17 +18,17 @@ import io.reactivex.functions.Consumer;
 /**
  * @param <M>
  */
-public class BaseViewModel<M extends BaseModel> extends AndroidViewModel implements IBaseViewModel, Consumer<Disposable> {
+public class BaseViewModel<M extends BaseRepository> extends AndroidViewModel implements IBaseViewModel, Consumer<Disposable> {
     //弱引用持有
     private WeakReference<LifecycleProvider> lifecycle;
     private CompositeDisposable compositeDisposable;
-    private final M model;
+    protected final M model;
 
     public BaseViewModel(@NonNull Application application) {
         super(application);
 
-        //获取泛型中Model对象
-        model = TypeUtil.getClassType(this, 0);
+        //获取泛型中Model对象实例
+        model = TypeUtil.getClassInstance(this, 0);
     }
 
 

@@ -4,10 +4,6 @@ import android.app.IntentService;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 
-import com.zoyo.mvvmdemo.BuildConfig;
-import com.zoyo.mvvmdemo.model.API;
-import com.zoyo.net.RetrofitManager;
-
 class InitializeService extends IntentService {
     private static final String ACTION_INIT = "initApplication";
 
@@ -38,14 +34,15 @@ class InitializeService extends IntentService {
     }
 
     private void initApplication() {
-        RetrofitManager.Builder builder = new RetrofitManager.Builder();
-        builder.application(myApplication)
-                .connectTimeout(10)
-                .writeTimeout(20)
-                .readTimeout(20)
-                .showLog(BuildConfig.DEBUG)
-                .baseUrl(API.BASE_URL)
-                .token("");
+//        RetrofitManager.Builder builder = new RetrofitManager.Builder();
+//        builder.application(myApplication)
+//                .connectTimeout(10)
+//                .writeTimeout(20)
+//                .readTimeout(20)
+//                .showLog(BuildConfig.DEBUG)
+//                .baseUrl(API.BASE_URL)
+//                .token("");
 
+//        ImageLoader.getInstance().setGlobalImageStrategy();
     }
 }
