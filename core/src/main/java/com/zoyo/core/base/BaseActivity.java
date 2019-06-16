@@ -11,8 +11,8 @@ import com.zoyo.core.utils.TypeUtil;
 
 public abstract class BaseActivity<VM extends BaseViewModel> extends RxAppCompatActivity implements IBaseView {
 
-    private VM viewModel;
-    private ViewDataBinding dataBinding;
+    public VM viewModel;
+    public ViewDataBinding dataBinding;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
