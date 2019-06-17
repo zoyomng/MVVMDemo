@@ -1,4 +1,4 @@
-package com.zoyo.core.adapter.recyclerview;
+package com.zoyo.core.binding.adapter.recyclerview;
 
 /**
  * ---日期----------维护人-----------变更内容----------

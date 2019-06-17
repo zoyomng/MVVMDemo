@@ -54,9 +54,9 @@ public abstract class BaseActivity<VM extends BaseViewModel> extends RxAppCompat
     /**
      * 布局文件中设置ViewModel变量
      * <data>
-     * <variable
-     * name="viewModel"
-     * type="ViewModel" />
+     *   <variable
+     *      name="viewModel"
+     *      type="ViewModel" />
      * </data>
      * <p>
      * 使用方式:

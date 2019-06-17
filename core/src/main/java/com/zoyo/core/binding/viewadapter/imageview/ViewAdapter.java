@@ -1,4 +1,4 @@
-package com.zoyo.core.viewadapter.imageview;
+package com.zoyo.core.binding.viewadapter.imageview;
 
 import android.databinding.BindingAdapter;
 import android.text.TextUtils;

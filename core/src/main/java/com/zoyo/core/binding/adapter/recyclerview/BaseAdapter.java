@@ -1,4 +1,4 @@
-package com.zoyo.core.adapter.recyclerview;
+package com.zoyo.core.binding.adapter.recyclerview;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
@@ -48,6 +48,7 @@ public class BaseAdapter<E> extends RecyclerView.Adapter<ItemViewHolder> {
      */
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder viewHolder, int position) {
+
         viewHolder.getDataBinding().setVariable(variableId, data.get(position));
 
         //条目点击事件
