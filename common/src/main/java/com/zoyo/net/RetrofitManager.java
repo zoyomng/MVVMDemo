@@ -1,6 +1,5 @@
 package com.zoyo.net;
 
-import android.app.Application;
 import android.text.TextUtils;
 
 import com.zoyo.common.application.Constants;
@@ -46,7 +45,13 @@ public class RetrofitManager {
      * @return
      */
     public RetrofitManager loadConfigs(RetrofitConfigs configs) {
-        loadConfig(configs);
+        this.baseUrl = configs.baseUrl;
+        this.cachePath = configs.cachePath;
+        this.connectTimeout = configs.connectTimeout;
+        this.readTimeout = configs.readTimeout;
+        this.writeTimeout = configs.writeTimeout;
+        this.token = configs.token;
+        this.mBuildConfigDebug = configs.mBuildConfigDebug;
         return this;
     }
 
@@ -57,10 +62,10 @@ public class RetrofitManager {
      */
     private void initClient() {
         OkHttpClient okHttpClient = initOkHttpClient();
-        retrofit = initRetrofit(okHttpClient);
+        retrofit = initRetrofitClient(okHttpClient);
     }
 
-    private Retrofit initRetrofit(OkHttpClient okHttpClient) {
+    private Retrofit initRetrofitClient(OkHttpClient okHttpClient) {
         Retrofit.Builder builder = new Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
@@ -93,21 +98,18 @@ public class RetrofitManager {
         return builder.build();
     }
 
-    private void loadConfig(RetrofitConfigs mRetrofitOptions) {
-        this.baseUrl = mRetrofitOptions.baseUrl;
-        this.cachePath = mRetrofitOptions.cachePath;
-        this.connectTimeout = mRetrofitOptions.connectTimeout;
-        this.readTimeout = mRetrofitOptions.readTimeout;
-        this.writeTimeout = mRetrofitOptions.writeTimeout;
-        this.token = mRetrofitOptions.token;
-        this.mBuildConfigDebug = mRetrofitOptions.mBuildConfigDebug;
-    }
-
     public RetrofitManager build() {
         initClient();
         return this;
     }
 
+    /**
+     * 加载API
+     *
+     * @param clazz
+     * @param <T>
+     * @return
+     */
     public <T> T creat(Class<T> clazz) {
         if (retrofit == null) {
             initClient();

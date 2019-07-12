@@ -168,6 +168,13 @@ public class RetrofitHelper {
         return builder.build();
     }
 
+    /**
+     * 加载API
+     *
+     * @param clazz
+     * @param <T>
+     * @return
+     */
     public <T> T creat(Class<T> clazz) {
         if (retrofit == null) {
             OkHttpClient okHttpClient = initOkHttpClient();

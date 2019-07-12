@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--2.设置全局Activity进出动画-->
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowAnimationStyle">@style/ActivityAnim</item>
+    </style>
+
+    <style name="ActivityAnim">
+        <item name="android:activityOpenEnterAnimation">@anim/anim_in_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/anim_out_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/anim_out_right</item>
+        <item name="android:activityCloseEnterAnimation">@anim/anim_in_left</item>
+    </style>
+
+</resources>

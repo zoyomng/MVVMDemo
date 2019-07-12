@@ -1,33 +1,18 @@
 package com.zoyo.mvvmdemo.view;
 
+import android.arch.lifecycle.Observer;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.ColorInt;
+import android.support.annotation.Nullable;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 
 import com.zoyo.core.base.BaseActivity;
 import com.zoyo.mvvmdemo.BR;
 import com.zoyo.mvvmdemo.R;
-import com.zoyo.mvvmdemo.model.ItemBean;
 import com.zoyo.mvvmdemo.viewModel.MainViewModel;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class MainActivity extends BaseActivity<MainViewModel> {
-
-    @ColorInt
-    private static final int[] BG_COLORS = {
-            0xfff25f8c, 0xfffb7f77, 0xfffcc02c, 0xff2fcc87,
-            0xff3dc2c7, 0xff47b2f8, 0xffb28bdc, 0xff948079,
-            0xfff25f8c, 0xfffb7f77, 0xfffcc02c, 0xff2fcc87,
-            0xff3dc2c7, 0xff47b2f8, 0xffb28bdc, 0xff948079,
-            0xfff25f8c, 0xfffb7f77, 0xfffcc02c, 0xff2fcc87,
-            0xff3dc2c7, 0xff47b2f8, 0xffb28bdc, 0xff948079,
-            0xfff25f8c, 0xfffb7f77, 0xfffcc02c, 0xff2fcc87,
-            0xff3dc2c7, 0xff47b2f8, 0xffb28bdc, 0xff948079,
-            0xfff25f8c, 0xfffb7f77, 0xfffcc02c, 0xff2fcc87,
-            0xff3dc2c7, 0xff47b2f8, 0xffb28bdc, 0xff948079
-    };
-
 
     @Override
     protected int initViewModelId() {
@@ -38,7 +23,6 @@ public class MainActivity extends BaseActivity<MainViewModel> {
     protected int getLayoutId(Bundle savedInstanceState) {
         return R.layout.activity_main;
     }
-
 
     @Override
     public void initData() {
@@ -69,13 +53,34 @@ public class MainActivity extends BaseActivity<MainViewModel> {
 //            }
 //        };
 //        rvMain.setAdapter(adapter);
+
+        //第三种方式
+        Transition explode = TransitionInflater.from(this).inflateTransition(R.transition.tran_explode);
+        getWindow().setEnterTransition(explode);
+
+        viewModel.itemIndexClicked.observe(this, new Observer<Integer>() {
+            @Override
+            public void onChanged(@Nullable Integer integer) {
+                switch (integer) {
+                    case 1:
+                        startActivity(new Intent(MainActivity.this, InOutAnimActivity.class));
+                        //1.Activity切换的进出过渡动画
+//                        overridePendingTransition(R.anim.anim_in_right, R.anim.anim_out_left);
+
+
+                        break;
+
+                    case 2:
+                        startActivity(new Intent(MainActivity.this, DownloadActivity.class));
+
+                        break;
+
+
+                    default:
+                        break;
+                }
+            }
+        });
     }
 
-    private List<ItemBean> initItemDatas() {
-        ArrayList<ItemBean> itemBeans = new ArrayList<>();
-        itemBeans.add(new ItemBean("DataBinding的使用", BG_COLORS[0]));
-        itemBeans.add(new ItemBean("DataBinding的使用", BG_COLORS[0]));
-        itemBeans.add(new ItemBean("DataBinding的使用", BG_COLORS[0]));
-        return itemBeans;
-    }
 }

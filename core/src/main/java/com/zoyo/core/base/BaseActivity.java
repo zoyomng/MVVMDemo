@@ -51,12 +51,21 @@ public abstract class BaseActivity<VM extends BaseViewModel> extends RxAppCompat
         return (VM) ViewModelProviders.of(this).get(TypeUtil.getClassType(this, 0, BaseViewModel.class));
     }
 
+
+    /**
+     * 页面布局
+     *
+     * @param savedInstanceState 保存的状态数据
+     * @return
+     */
+    protected abstract int getLayoutId(Bundle savedInstanceState);
+
     /**
      * 布局文件中设置ViewModel变量
      * <data>
-     *   <variable
-     *      name="viewModel"
-     *      type="ViewModel" />
+     * <variable
+     * name="viewModel"
+     * type="ViewModel" />
      * </data>
      * <p>
      * 使用方式:
@@ -70,13 +79,6 @@ public abstract class BaseActivity<VM extends BaseViewModel> extends RxAppCompat
      */
     protected abstract int initViewModelId();
 
-    /**
-     * 页面布局
-     *
-     * @param savedInstanceState 保存的状态数据
-     * @return
-     */
-    protected abstract int getLayoutId(Bundle savedInstanceState);
 
     @Override
     public void initData() {
