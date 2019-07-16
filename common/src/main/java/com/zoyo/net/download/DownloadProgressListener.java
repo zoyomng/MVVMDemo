@@ -1,4 +1,4 @@
-package com.zoyo.net.down;
+package com.zoyo.net.download;
 
 /**
  * @Description: java类作用描述

@@ -7,8 +7,8 @@ import android.support.annotation.NonNull;
 import com.zoyo.core.base.BaseViewModel;
 import com.zoyo.mvvmdemo.app.Constants;
 import com.zoyo.mvvmdemo.model.repository.DownloadRepository;
-import com.zoyo.net.down.DownloadManager;
-import com.zoyo.net.down.ProgressSubscriber;
+import com.zoyo.net.download.DownloadManager;
+import com.zoyo.net.download.ProgressSubscriber;
 
 import java.io.File;
 import java.io.IOException;

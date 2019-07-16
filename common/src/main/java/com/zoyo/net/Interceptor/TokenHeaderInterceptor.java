@@ -1,4 +1,4 @@
-package com.zoyo.net;
+package com.zoyo.net.Interceptor;
 
 import android.text.TextUtils;
 
@@ -11,7 +11,7 @@ import okhttp3.Response;
 public class TokenHeaderInterceptor implements Interceptor {
     private String token;
 
-    TokenHeaderInterceptor(String token) {
+    public TokenHeaderInterceptor(String token) {
         this.token = token;
     }
 

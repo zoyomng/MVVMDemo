@@ -1,4 +1,4 @@
-package com.zoyo.net.down;
+package com.zoyo.net.download;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;

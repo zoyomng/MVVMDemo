@@ -1,4 +1,4 @@
-package com.zoyo.net.down;
+package com.zoyo.net.download;
 
 import java.io.File;
 import java.io.FileOutputStream;
