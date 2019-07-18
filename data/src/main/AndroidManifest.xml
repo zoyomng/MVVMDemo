@@ -1,2 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zoyo.data" />
+    package="com.zoyo.data" >
+
+    <application>
+        <activity android:name=".ConstraintActivity" />
+        <activity android:name=".MultiLayoutActivity" />
+    </application>
+</manifest>

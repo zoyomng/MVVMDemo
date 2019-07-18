@@ -8,6 +8,8 @@ import android.transition.Transition;
 import android.transition.TransitionInflater;
 
 import com.zoyo.core.base.BaseActivity;
+import com.zoyo.data.ConstraintActivity;
+import com.zoyo.data.MultiLayoutActivity;
 import com.zoyo.mvvmdemo.BR;
 import com.zoyo.mvvmdemo.R;
 import com.zoyo.mvvmdemo.viewModel.MainViewModel;
@@ -72,6 +74,14 @@ public class MainActivity extends BaseActivity<MainViewModel> {
 
                     case 2:
                         startActivity(new Intent(MainActivity.this, DownloadActivity.class));
+
+                        break;
+                    case 3:
+                        startActivity(new Intent(MainActivity.this, ConstraintActivity.class));
+
+                        break;
+                    case 4:
+                        startActivity(new Intent(MainActivity.this, MultiLayoutActivity.class));
 
                         break;
 

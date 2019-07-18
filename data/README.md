@@ -1,7 +1,8 @@
 # Data 资料
 
 ## 存储路径
-` 
+
+```
 
 System.out.println(Environment.getDataDirectory());
 
@@ -32,8 +33,7 @@ System.out.println(getApplication().getExternalFilesDir("test") );
 
 System.out.println(getApplication().getExternalFilesDir(null));
 
-`
- 
+```
 
 *  Environment.getDataDirectory() -> /data
 
@@ -64,3 +64,81 @@ System.out.println(getApplication().getExternalFilesDir(null));
 *  getApplication().getExternalFilesDir(null) -> /storage/emulated/0/Android/data/com.zoyo.mvvmdemo/files
 
 
+### [ConstraintLayout + ConstraintSet 实现动画](http://www.uwanttolearn.com/android/constraint-layout-animations-dynamic-constraints-ui-java-hell/)
+
+* 只使用一个布局,通过ConstraintSet设置约束
+ ```java
+public class ConstraintActivity extends AppCompatActivity { 
+    private ConstraintSet applyConstraintSet = new ConstraintSet(); 
+    private ConstraintSet resetConstraintSet = new ConstraintSet(); 
+    private ConstraintLayout constraintLayout;
+        
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_constraint);
+        // R.id.constraintLayout:根布局
+        constraintLayout = (ConstraintLayout) findViewById(R.id.constraintLayout);
+
+        //原布局
+        resetConstraintSet.clone(constraintLayout);
+        //新布局
+        applyConstraintSet.clone(constraintLayout);
+    }
+
+    public void apply(View view) {
+        TransitionManager.beginDelayedTransition(constraintLayout);
+
+        //设置Margin
+        applyConstraintSet.setMargin(R.id.textView4, ConstraintSet.TOP, 200);
+        //设置宽高
+        applyConstraintSet.constrainWidth(R.id.textView4, 600);
+        //清除所有约束
+        applyConstraintSet.clear(R.id.textView3);
+        applyConstraintSet.applyTo(constraintLayout);
+    }
+
+    public void reset(View view) {
+        TransitionManager.beginDelayedTransition(constraintLayout);
+
+        resetConstraintSet.applyTo(constraintLayout);
+    }
+}
+        
+```
+        
+* 使用两个布局,实现过渡动画
+
+```java
+ public class ConstraintActivity extends AppCompatActivity {
+
+    private ConstraintSet applyConstraintSet = new ConstraintSet();
+    private ConstraintSet resetConstraintSet = new ConstraintSet();
+    private ConstraintLayout constraintLayout;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_constraint);
+        //两个布局中需要动画过渡的控件id必须一致,才能实现动画;如果id不一致,原布局控件不会过渡到新布局控件
+        // R.id.constraintLayout:根布局
+        constraintLayout = (ConstraintLayout) findViewById(R.id.constraintLayout);
+
+        //原布局
+        resetConstraintSet.clone(constraintLayout);
+        //新布局
+        applyConstraintSet.clone(this, R.layout.activity_constraint_apply);
+    }
+
+    public void apply(View view) {
+        TransitionManager.beginDelayedTransition(constraintLayout);
+        applyConstraintSet.applyTo(constraintLayout);
+    }
+
+    public void reset(View view) {
+        TransitionManager.beginDelayedTransition(constraintLayout);
+
+        resetConstraintSet.applyTo(constraintLayout);
+    }
+}
+```

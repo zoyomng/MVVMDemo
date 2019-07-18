@@ -80,10 +80,10 @@ public class MainViewModel extends BaseViewModel<MainRepository> {
 
     public ArrayList<ItemBean> initItemDatas() {
         itemBeans.add(new ItemBean("DataBinding的使用", BG_COLORS[0]));
-        itemBeans.add(new ItemBean("跳转Activity的动画", BG_COLORS[0]));
-        itemBeans.add(new ItemBean("文件下载", BG_COLORS[0]));
-        itemBeans.add(new ItemBean("DataBinding的使用", BG_COLORS[0]));
-        itemBeans.add(new ItemBean("DataBinding的使用", BG_COLORS[0]));
+        itemBeans.add(new ItemBean("跳转Activity的动画", BG_COLORS[1]));
+        itemBeans.add(new ItemBean("文件下载", BG_COLORS[2]));
+        itemBeans.add(new ItemBean("ConstraintLayout + ConstraintSet 实现动画", BG_COLORS[3]));
+        itemBeans.add(new ItemBean("一个Activity加载多个布局", BG_COLORS[4]));
         itemBeans.add(new ItemBean("DataBinding的使用", BG_COLORS[0]));
         itemBeans.add(new ItemBean("DataBinding的使用", BG_COLORS[0]));
         itemBeans.add(new ItemBean("DataBinding的使用", BG_COLORS[0]));
