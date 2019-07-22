@@ -1,8 +1,8 @@
 package com.zoyo.core.binding.viewadapter.recyclerview;
 
-import android.databinding.BindingAdapter;
-import android.support.annotation.LayoutRes;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.LayoutRes;
+import androidx.databinding.BindingAdapter;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.zoyo.core.binding.adapter.recyclerview.BaseAdapter;
 

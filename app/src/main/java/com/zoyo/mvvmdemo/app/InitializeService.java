@@ -2,7 +2,8 @@ package com.zoyo.mvvmdemo.app;
 
 import android.app.IntentService;
 import android.content.Intent;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 class InitializeService extends IntentService {
     private static final String ACTION_INIT = "initApplication";

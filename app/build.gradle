@@ -11,7 +11,7 @@ android {
         versionName rootProject.ext.android.versionName
 
         applicationId "com.zoyo.mvvmdemo"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -23,6 +23,11 @@ android {
     // 开启DataBinding
     dataBinding {
         enabled true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 

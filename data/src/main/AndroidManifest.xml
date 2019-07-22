@@ -4,5 +4,6 @@
     <application>
         <activity android:name=".ConstraintActivity" />
         <activity android:name=".MultiLayoutActivity" />
+        <activity android:name=".BottomNavigationActivity" />
     </application>
 </manifest>

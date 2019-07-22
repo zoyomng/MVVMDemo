@@ -1,7 +1,8 @@
 package com.zoyo.common.Utils;
 
-import android.support.annotation.StringRes;
 import android.widget.Toast;
+
+import androidx.annotation.StringRes;
 
 import com.zoyo.common.application.BaseApplication;
 

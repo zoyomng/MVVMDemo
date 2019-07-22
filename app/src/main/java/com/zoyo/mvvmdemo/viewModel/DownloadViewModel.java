@@ -1,8 +1,9 @@
 package com.zoyo.mvvmdemo.viewModel;
 
 import android.app.Application;
-import android.arch.lifecycle.MutableLiveData;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.MutableLiveData;
 
 import com.zoyo.core.base.BaseViewModel;
 import com.zoyo.mvvmdemo.app.Constants;

@@ -1,9 +1,11 @@
 package com.zoyo.data;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 /**
  * @Description: 使用一个Activity填充多种布局(非一次)
@@ -19,11 +21,12 @@ public class MultiLayoutActivity extends AppCompatActivity {
         setContentView(mTag);
     }
 
-//    @Override
-//    public void onConfigurationChanged(Configuration newConfig) {
-//        super.onConfigurationChanged(newConfig);
-//        setContentView(mTag);
-//    }
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        //配置项发生改变时,重新走onCreate()方法,所以根据需要改变
+        setContentView(mTag);
+    }
 
     /**
      * 点击事件-切换不同的布局

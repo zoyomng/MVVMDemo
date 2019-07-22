@@ -1,10 +1,11 @@
 package com.zoyo.mvvmdemo.viewModel;
 
 import android.app.Application;
-import android.arch.lifecycle.MutableLiveData;
-import android.support.annotation.ColorInt;
-import android.support.annotation.NonNull;
 import android.view.View;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import androidx.lifecycle.MutableLiveData;
 
 import com.zoyo.common.Utils.ToastUtil;
 import com.zoyo.core.base.BaseViewModel;

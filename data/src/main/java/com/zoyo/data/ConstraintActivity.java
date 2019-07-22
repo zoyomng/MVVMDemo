@@ -1,13 +1,14 @@
 package com.zoyo.data;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.constraint.ConstraintLayout;
-import android.support.constraint.ConstraintSet;
-import android.support.v7.app.AppCompatActivity;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
 import android.view.View;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 
 /**
  * @Description: Android ConstraintLayout + ConstraintSet实现动画效果

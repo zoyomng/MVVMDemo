@@ -1,13 +1,15 @@
 package com.zoyo.mvvmdemo.view;
 
-import android.arch.lifecycle.Observer;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
 
+import androidx.annotation.Nullable;
+import androidx.lifecycle.Observer;
+
 import com.zoyo.core.base.BaseActivity;
+import com.zoyo.data.BottomNavigationActivity;
 import com.zoyo.data.ConstraintActivity;
 import com.zoyo.data.MultiLayoutActivity;
 import com.zoyo.mvvmdemo.BR;
@@ -68,21 +70,19 @@ public class MainActivity extends BaseActivity<MainViewModel> {
                         startActivity(new Intent(MainActivity.this, InOutAnimActivity.class));
                         //1.Activity切换的进出过渡动画
 //                        overridePendingTransition(R.anim.anim_in_right, R.anim.anim_out_left);
-
-
                         break;
 
                     case 2:
                         startActivity(new Intent(MainActivity.this, DownloadActivity.class));
-
                         break;
                     case 3:
                         startActivity(new Intent(MainActivity.this, ConstraintActivity.class));
-
                         break;
                     case 4:
                         startActivity(new Intent(MainActivity.this, MultiLayoutActivity.class));
-
+                        break;
+                    case 5:
+                        startActivity(new Intent(MainActivity.this, BottomNavigationActivity.class));
                         break;
 
 

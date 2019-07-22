@@ -1,8 +1,8 @@
 package com.zoyo.core.binding.adapter.recyclerview;
 
-import android.databinding.ViewDataBinding;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.databinding.ViewDataBinding;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * ---日期----------维护人-----------变更内容----------
