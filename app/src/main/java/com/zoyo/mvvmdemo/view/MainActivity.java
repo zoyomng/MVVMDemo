@@ -9,14 +9,16 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
 
 import com.zoyo.core.base.BaseActivity;
-import com.zoyo.data.BottomNavigationActivity;
-import com.zoyo.data.ConstraintActivity;
 import com.zoyo.data.MultiLayoutActivity;
+import com.zoyo.data.constraint_layout.ConstraintActivity;
+import com.zoyo.data.constraint_layout.MotionLayoutActivity;
 import com.zoyo.mvvmdemo.BR;
 import com.zoyo.mvvmdemo.R;
 import com.zoyo.mvvmdemo.viewModel.MainViewModel;
 
 public class MainActivity extends BaseActivity<MainViewModel> {
+
+    private int layoutResId;
 
     @Override
     protected int initViewModelId() {
@@ -82,15 +84,56 @@ public class MainActivity extends BaseActivity<MainViewModel> {
                         startActivity(new Intent(MainActivity.this, MultiLayoutActivity.class));
                         break;
                     case 5:
-                        startActivity(new Intent(MainActivity.this, BottomNavigationActivity.class));
+                        startActivity(R.layout.activity_motion_01);
                         break;
-
+                    case 6:
+                        startActivity(R.layout.activity_motion_02);
+                        break;
+                    case 7:
+                        startActivity(R.layout.activity_motion_03);
+                        break;
+                    case 8:
+                        startActivity(R.layout.activity_motion_04);
+                        break;
+                    case 9:
+                        startActivity(R.layout.activity_motion_05);
+                        break;
+                    case 10:
+                        startActivity(R.layout.activity_motion_06);
+                        break;
+                    case 11:
+                        startActivity(R.layout.activity_motion_07);
+                        break;
+                    case 12:
+                        startActivity(R.layout.activity_motion_08);
+                        break;
+                    case 13:
+                        startActivity(R.layout.activity_motion_09);
+                        break;
+                    case 14:
+                        startActivity(R.layout.activity_motion_10);
+                        break;
+                    case 15:
+                        startActivity(R.layout.activity_motion_08);
+                        break;
+                    case 16:
+                        startActivity(R.layout.activity_motion_08);
+                        break;
+                    case 17:
+                        startActivity(R.layout.activity_motion_08);
+                        break;
 
                     default:
                         break;
                 }
             }
         });
+    }
+
+    private void startActivity(int layoutResId) {
+        Intent intent = new Intent(MainActivity.this, MotionLayoutActivity.class);
+        intent.putExtra("layoutResId", layoutResId);
+        startActivity(intent);
     }
 
 }
