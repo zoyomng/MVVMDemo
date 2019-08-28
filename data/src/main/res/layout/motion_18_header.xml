@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/motionLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary"
+    app:layoutDescription="@xml/motion_scene_18_header">
+
+    <com.zoyo.data.motionlayout.view.BoundsImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/primary"
+        android:scaleType="centerCrop"
+        android:src="@drawable/monterey" />
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Monterey"
+        android:textColor="@android:color/white"
+        android:textSize="32sp"
+        android:transformPivotX="0dp"
+        android:transformPivotY="0dp" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

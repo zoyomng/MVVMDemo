@@ -12,8 +12,8 @@
         android:layout_height="@dimen/app_bar_height"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <include layout="@layout/motion_header_collapsibletoobar" />
+        <include layout="@layout/motion_10_header" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/motion_footer_scroll" />
+    <include layout="@layout/motion_content_scrolling" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

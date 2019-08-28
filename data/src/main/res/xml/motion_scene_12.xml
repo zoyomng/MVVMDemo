@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        app:constraintSetEnd="@id/end"
+        app:constraintSetStart="@id/start"
+        app:duration="1000"
+        app:motionInterpolator="linear">
+    </Transition>
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@id/background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="1.0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@id/head"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="@drawable/shape_head_circle"
+            app:srcCompat="@drawable/roard"
+            app:layout_constraintBottom_toTopOf="@+id/label"
+            app:layout_constraintEnd_toEndOf="@+id/label"
+            app:layout_constraintStart_toStartOf="@+id/label" />
+
+        <Constraint
+            android:id="@id/label"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@id/background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="0.0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@id/head"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Constraint
+            android:id="@id/label"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </ConstraintSet>
+
+
+</MotionScene>

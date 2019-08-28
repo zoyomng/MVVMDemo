@@ -1,4 +1,4 @@
-package com.zoyo.data.constraint_layout;
+package com.zoyo.data.motionlayout.ui;
 
 import android.os.Bundle;
 import android.transition.AutoTransition;

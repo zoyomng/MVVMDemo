@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zoyo.data.motionlayout.view.CollapsibleToolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/motionLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false"
+    android:minHeight="40dp"
+    android:orientation="vertical"
+    app:layoutDescription="@xml/motion_scene_12"
+    app:layout_scrollFlags="scroll|enterAlways|snap|exitUntilCollapsed">
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/sea" />
+
+    <ImageView
+        android:id="@+id/head"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/shape_head_circle"
+        android:src="@drawable/roard"
+        app:layout_constraintBottom_toTopOf="@+id/label"
+        app:layout_constraintEnd_toEndOf="@+id/label"
+        app:layout_constraintStart_toStartOf="@+id/label" />
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:text="Nicolas Roard"
+        android:textColor="@android:color/white"
+        app:autoSizeTextType="uniform"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</com.zoyo.data.motionlayout.view.CollapsibleToolbar>

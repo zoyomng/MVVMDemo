@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zoyo.data.view.CollapsibleToobar xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zoyo.data.motionlayout.view.CollapsibleToolbar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/motionLayout"
     android:layout_width="match_parent"
@@ -28,4 +28,4 @@
         android:transformPivotX="0dp"
         android:transformPivotY="0dp" />
 
-</com.zoyo.data.view.CollapsibleToobar>
+</com.zoyo.data.motionlayout.view.CollapsibleToolbar>

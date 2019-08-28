@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zoyo.data.motionlayout.view.ViewpagerHeader xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/motionLayout"
+    android:layout_width="match_parent"
+    android:layout_height="230dp"
+    app:layoutDescription="@xml/motion_scene_15">
+
+    <ImageView
+        android:id="@+id/mountains"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/mountains" />
+
+    <ImageView
+        android:id="@+id/tree2"
+        android:layout_width="360dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginBottom="32dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/mountains"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/trees" />
+
+    <ImageView
+        android:id="@+id/tree1"
+        android:layout_width="360dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="0dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/tree2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/trees" />
+
+    <ImageView
+        android:id="@+id/car"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/car" />
+</com.zoyo.data.motionlayout.view.ViewpagerHeader>

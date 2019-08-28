@@ -10,8 +10,11 @@ import androidx.lifecycle.Observer;
 
 import com.zoyo.core.base.BaseActivity;
 import com.zoyo.data.MultiLayoutActivity;
-import com.zoyo.data.constraint_layout.ConstraintActivity;
-import com.zoyo.data.constraint_layout.MotionLayoutActivity;
+import com.zoyo.data.motionlayout.ui.ConstraintActivity;
+import com.zoyo.data.motionlayout.ui.FragmentExampleActivity;
+import com.zoyo.data.motionlayout.ui.MotionLayoutActivity;
+import com.zoyo.data.motionlayout.ui.ViewPagerActivity;
+import com.zoyo.data.motionlayout.ui.YouTubeActivity;
 import com.zoyo.mvvmdemo.BR;
 import com.zoyo.mvvmdemo.R;
 import com.zoyo.mvvmdemo.viewModel.MainViewModel;
@@ -114,13 +117,49 @@ public class MainActivity extends BaseActivity<MainViewModel> {
                         startActivity(R.layout.activity_motion_10);
                         break;
                     case 15:
-                        startActivity(R.layout.activity_motion_08);
+                        startActivity(R.layout.activity_motion_11);
                         break;
                     case 16:
-                        startActivity(R.layout.activity_motion_08);
+                        startActivity(R.layout.activity_motion_12);
                         break;
                     case 17:
-                        startActivity(R.layout.activity_motion_08);
+                        startActivity(R.layout.activity_motion_13);
+                        break;
+                    case 18:
+                        startActivity(R.layout.activity_motion_14);
+                        break;
+                    case 19:
+                        startActivity(R.layout.activity_motion_15);
+                        break;
+                    case 20:
+                        startActivity(new Intent(MainActivity.this, ViewPagerActivity.class).putExtra("layout", R.layout.activity_motion_16));
+                        break;
+                    case 21:
+                        startActivity(new Intent(MainActivity.this, ViewPagerActivity.class).putExtra("layout", R.layout.activity_motion_17));
+                        break;
+                    case 22:
+                        //与activity_motion_10对比学习,使用MotionLayout的协调行为取代Coordinatorlayout的作用,从而实现AppBar+toolBar+ScrollView的协调
+                        //FloatingActionButton协调行为
+                        startActivity(R.layout.activity_motion_18);
+                        break;
+                    case 23:
+                        //background:width和height设置成match与200dp的区别(对比motion_scene_18_header.xml和motion_scene_19_header.xml)
+                        startActivity(R.layout.activity_motion_19);
+                        break;
+                    case 24:
+                        //FlyingBounceHelper--进入页面时会出现动画(未实现,原因待查)
+                        startActivity(R.layout.activity_motion_20);
+                        break;
+                    case 25:
+                        //Fragment切换
+                        startActivity(new Intent(MainActivity.this, FragmentExampleActivity.class));
+                        break;
+                    case 26:
+                        //Fragment切换
+                        startActivity(new Intent(MainActivity.this, YouTubeActivity.class));
+                        break;
+                    case 27:
+                        startActivity(R.layout.activity_motion_23);
                         break;
 
                     default:

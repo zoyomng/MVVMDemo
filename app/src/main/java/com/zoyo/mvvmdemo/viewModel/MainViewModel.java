@@ -85,24 +85,30 @@ public class MainViewModel extends BaseViewModel<MainRepository> {
         itemBeans.add(new ItemBean("文件下载", BG_COLORS[2]));
         itemBeans.add(new ItemBean("ConstraintLayout + ConstraintSet 实现动画", BG_COLORS[3]));
         itemBeans.add(new ItemBean("一个Activity加载多个布局", BG_COLORS[4]));
-        itemBeans.add(new ItemBean("MotionLayout布局-Basic(1/3)", BG_COLORS[5]));
-        itemBeans.add(new ItemBean("MotionLayout布局-Basic(2/3)", BG_COLORS[5]));
-        itemBeans.add(new ItemBean("MotionLayout布局-Basic(3/3)", BG_COLORS[5]));
-        itemBeans.add(new ItemBean("MotionLayout布局-自定义属性", BG_COLORS[5]));
-        itemBeans.add(new ItemBean("MotionLayout布局-图片过渡(1/2)", BG_COLORS[5]));
-        itemBeans.add(new ItemBean("MotionLayout布局-图片过渡(2/2)", BG_COLORS[5]));
-        itemBeans.add(new ItemBean("MotionLayout布局-属性:路径点", BG_COLORS[5]));
-        itemBeans.add(new ItemBean("MotionLayout布局-属性:旋转/缩放/透明度/平移", BG_COLORS[5]));
-        itemBeans.add(new ItemBean("MotionLayout布局-属性:周期(sin/cos/三角形/矩形/落球...)", BG_COLORS[5]));
-        itemBeans.add(new ItemBean("CoordinatorLayout布局-协调者布局(1/3)", BG_COLORS[5]));
-        itemBeans.add(new ItemBean("CoordinatorLayout布局-协调者布局(2/3)", BG_COLORS[5]));
-        itemBeans.add(new ItemBean("CoordinatorLayout布局-协调者布局(3/3)", BG_COLORS[5]));
-        itemBeans.add(new ItemBean("MotionLayout布局-属性:周期(sin/cos/三角形/矩形/落球...)", BG_COLORS[5]));
-        itemBeans.add(new ItemBean("MotionLayout布局-属性:周期(sin/cos/三角形/矩形/落球...)", BG_COLORS[5]));
-        itemBeans.add(new ItemBean("DataBinding的使用", BG_COLORS[0]));
-        itemBeans.add(new ItemBean("DataBinding的使用", BG_COLORS[0]));
-        itemBeans.add(new ItemBean("DataBinding的使用", BG_COLORS[0]));
-        itemBeans.add(new ItemBean("DataBinding的使用", BG_COLORS[0]));
+        itemBeans.add(new ItemBean("MotionLayout-Basic(1/3)", BG_COLORS[5]));
+        itemBeans.add(new ItemBean("MotionLayout-Basic(2/3)", BG_COLORS[5]));
+        itemBeans.add(new ItemBean("MotionLayout-Basic(3/3)", BG_COLORS[5]));
+        itemBeans.add(new ItemBean("MotionLayout-自定义属性", BG_COLORS[5]));
+        itemBeans.add(new ItemBean("MotionLayout-图片过渡(1/2)", BG_COLORS[5]));
+        itemBeans.add(new ItemBean("MotionLayout-图片过渡(2/2)", BG_COLORS[5]));
+        itemBeans.add(new ItemBean("MotionLayout-属性:路径点", BG_COLORS[5]));
+        itemBeans.add(new ItemBean("MotionLayout-属性:旋转/缩放/透明度/平移", BG_COLORS[5]));
+        itemBeans.add(new ItemBean("MotionLayout-属性:周期(sin/cos/三角形/矩形/落球...)", BG_COLORS[5]));
+        itemBeans.add(new ItemBean("MotionLayout-协调者布局(1/3)", BG_COLORS[5]));
+        itemBeans.add(new ItemBean("MotionLayout-协调者布局(2/3)", BG_COLORS[5]));
+        itemBeans.add(new ItemBean("MotionLayout-协调者布局(3/3)", BG_COLORS[5]));
+        itemBeans.add(new ItemBean("MotionLayout-拖拽布局(1/2)", BG_COLORS[5]));
+        itemBeans.add(new ItemBean("MotionLayout-拖拽布局(2/2)", BG_COLORS[5]));
+        itemBeans.add(new ItemBean("MotionLayout-视差效果", BG_COLORS[5]));
+        itemBeans.add(new ItemBean("MotionLayout-ViewPager(1/2)", BG_COLORS[5]));
+        itemBeans.add(new ItemBean("MotionLayout-ViewPager(2/2)", BG_COLORS[5]));
+        itemBeans.add(new ItemBean("MotionLayout的协调行为(1/3)", BG_COLORS[5]));
+        itemBeans.add(new ItemBean("MotionLayout的协调行为(2/3)", BG_COLORS[5]));
+        itemBeans.add(new ItemBean("MotionLayout的协调行为(3/3)", BG_COLORS[5]));
+        itemBeans.add(new ItemBean("MotionLayout-Fragment Transition", BG_COLORS[5]));
+        itemBeans.add(new ItemBean("MotionLayout-YouTube", BG_COLORS[5]));
+        itemBeans.add(new ItemBean("MotionLayout-多状态", BG_COLORS[5]));
+
         return itemBeans;
     }
 

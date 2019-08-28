@@ -1,4 +1,4 @@
-package com.zoyo.data.view;
+package com.zoyo.data.motionlayout.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -12,18 +12,18 @@ import com.google.android.material.appbar.AppBarLayout;
  * @Author: zoyomng
  * @CreateDate: 2019/8/13 15:03
  */
-public class CollapsibleToobar extends MotionLayout implements AppBarLayout.OnOffsetChangedListener {
+public class CollapsibleToolbar extends MotionLayout implements AppBarLayout.OnOffsetChangedListener {
 
 
-    public CollapsibleToobar(Context context) {
+    public CollapsibleToolbar(Context context) {
         this(context, null);
     }
 
-    public CollapsibleToobar(Context context, AttributeSet attrs) {
+    public CollapsibleToolbar(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public CollapsibleToobar(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CollapsibleToolbar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
