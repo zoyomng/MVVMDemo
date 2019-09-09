@@ -1,7 +1,7 @@
 package com.zoyo.common.rx;
 
 import com.google.gson.JsonParseException;
-import com.zoyo.common.Utils.NetUtil;
+import com.zoyo.common.utils.NetUtil;
 
 import org.json.JSONException;
 

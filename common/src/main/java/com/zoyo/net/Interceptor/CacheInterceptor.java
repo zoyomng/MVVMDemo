@@ -1,7 +1,7 @@
 package com.zoyo.net.Interceptor;
 
 
-import com.zoyo.common.Utils.NetUtil;
+import com.zoyo.common.utils.NetUtil;
 
 import java.io.IOException;
 

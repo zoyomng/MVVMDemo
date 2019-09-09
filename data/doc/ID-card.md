@@ -1,9 +1,6 @@
-package com.zoyo.common.Utils;
+# Android IDCard 身份证验证
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
+```java
 /**
  * 检验身份证是否合法的工具类
  * Created by cheng on 2017/8/21.
@@ -248,6 +245,7 @@ public class IDCardUtils {
      *
      * @param c
      * @return
+     * @throws NumberFormatException
      */
     private static int[] converCharToInt(char[] c) throws NumberFormatException {
         int[] a = new int[c.length];
@@ -258,3 +256,4 @@ public class IDCardUtils {
         return a;
     }
 }
+```

@@ -7,7 +7,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
-import com.zoyo.common.Utils.ToastUtil;
+import com.zoyo.common.utils.ToastUtil;
 import com.zoyo.core.base.BaseViewModel;
 import com.zoyo.core.base.OnDataCallback;
 import com.zoyo.core.binding.adapter.recyclerview.BaseAdapter;

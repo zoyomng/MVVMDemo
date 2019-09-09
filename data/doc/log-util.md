@@ -1,18 +1,10 @@
-package com.zoyo.common.Utils;
+# Android log日志工具类
 
-
-import android.util.Log;
-
-import com.zoyo.common.BuildConfig;
-
-
-/**
- * log日志(仅debug模式下显示)
- */
+```java
 public class LogUtil {
 
     public static boolean isDebug = BuildConfig.DEBUG;
-    private static final String TAG = "com.zoyo";
+    private static final String TAG = "com.tangchaoke";
 
     public static void e(String tag, String msg) {
         if (isDebug) {
@@ -50,3 +42,4 @@ public class LogUtil {
         }
     }
 }
+```

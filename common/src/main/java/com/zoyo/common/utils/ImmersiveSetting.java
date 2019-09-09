@@ -1,4 +1,4 @@
-package com.zoyo.common.Utils;
+package com.zoyo.common.utils;
 
 import android.app.Activity;
 import android.graphics.Color;
