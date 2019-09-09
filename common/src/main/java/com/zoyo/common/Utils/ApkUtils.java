@@ -7,7 +7,9 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
+import android.provider.Settings;
 
+import androidx.annotation.RequiresApi;
 import androidx.core.content.FileProvider;
 
 import java.io.File;
@@ -55,24 +57,63 @@ public class ApkUtils {
      * @param context Context
      * @param apkPath apkPath
      */
-    public static final void installApk(Activity context, String apkPath) {
+    public static void installApk(Activity context, String apkPath) {
+
+        /**
+         * 8.0以上需要手动开启允许安装未知来源的apk的权限
+         */
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            boolean hasInstallPermission = isHasInstallPermissionWithO(context);
+            if (!hasInstallPermission) {
+                startInstallPermissionSettingActivity(context);
+                return;
+            }
+        }
+
         File apkFile = new File(apkPath);
+        Intent install = new Intent(Intent.ACTION_VIEW);
+        install.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             // 判断版本是否在7.0以上
             // 在AndroidManifest.xml中声明的的android:authorities值
-            Uri apkUri = FileProvider.getUriForFile(context, "com.zoyo", apkFile);
-            Intent install = new Intent(Intent.ACTION_VIEW);
-            install.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            Uri apkUri = FileProvider.getUriForFile(context, context.getPackageName(), apkFile);
+
             install.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             install.setDataAndType(apkUri, "application/vnd.android.package-archive");
             context.startActivity(install);
         } else {
-            Intent install = new Intent(Intent.ACTION_VIEW);
             install.setDataAndType(Uri.fromFile(apkFile), "application/vnd.android.package-archive");
-            install.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(install);
         }
 
         context.finish();
+    }
+
+    /**
+     * Android 8.0以上系统，判断是否有未知应用安装权限
+     *
+     * @param context
+     * @return
+     */
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static boolean isHasInstallPermissionWithO(Context context) {
+        if (context == null) {
+            return false;
+        }
+        return context.getPackageManager().canRequestPackageInstalls();
+    }
+
+    /**
+     * 开启设置安装未知来源应用权限界面
+     *
+     * @param context
+     */
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static void startInstallPermissionSettingActivity(Context context) {
+        if (context == null) {
+            return;
+        }
+        Intent intent = new Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES);
+        ((Activity) context).startActivityForResult(intent, 2000);
     }
 }

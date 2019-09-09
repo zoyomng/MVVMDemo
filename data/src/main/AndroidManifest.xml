@@ -5,7 +5,6 @@
     <application>
         <activity android:name=".motionlayout.ui.ConstraintActivity" />
         <activity android:name=".MultiLayoutActivity" />
-        <activity android:name=".BottomNavigationActivity" />
         <activity android:name=".motionlayout.ui.MotionLayoutActivity" />
         <activity android:name=".motionlayout.ui.ViewPagerActivity" />
         <activity android:name=".motionlayout.ui.FragmentExampleActivity" />

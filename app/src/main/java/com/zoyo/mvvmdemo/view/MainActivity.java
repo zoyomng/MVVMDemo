@@ -30,7 +30,7 @@ public class MainActivity extends BaseActivity<MainViewModel> {
 
     @Override
     protected int getLayoutId(Bundle savedInstanceState) {
-        return R.layout.activity_main;
+        return R.layout.activity_theme_main;
     }
 
     @Override
