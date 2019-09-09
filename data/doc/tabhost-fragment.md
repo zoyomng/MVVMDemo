@@ -42,7 +42,7 @@
 > * 这么写可以避免出现一些错误
 
 ### 初始化tab
-```java
+```
 private void initTabData() {
     mTableItemList = new ArrayList<>();
     mTableItemList.add(new TabItem(this, R.mipmap.icon_home_unchecked, R.mipmap.icon_home_checked, R.string.tab_home, Fragment_Home.class));
@@ -90,7 +90,7 @@ private void initTabHost() {
 ### TabItem类
 
 #### Tab 布局文件
-```java
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"

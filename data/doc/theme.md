@@ -4,7 +4,7 @@
 ![splash](../img/ic_splash.png "splash")
 
 > * AndroidManifest.xml
-```java
+```xml
 <activity
     android:name=".ui.activity.Activity_Splash"
     android:configChanges="mnc|mcc|locale|touchscreen|keyboard|keyboardHidden|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
@@ -18,7 +18,7 @@
 ```
 
 > * Splash界面主题
-```
+```xml
 <style name="SplashTheme" parent="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
     <item name="android:windowBackground">@mipmap/ic_splash</item>
 </style>

@@ -58,7 +58,7 @@ public class GsonUtils {
 
 解析assets目录下资源文件
 > * area_city.json
-```Java
+```
 {
   "citys": [
     {
@@ -92,7 +92,7 @@ public class GsonUtils {
 ```
 
 使用方式:
-```Java
+```
 
 try {
     InputStream cityJson = App.getInstance().getAssets().open("area_city.json");

@@ -176,14 +176,14 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
 ```
 
 ### 使用方式-MyApplica(MyApplica extends Application)中
-```java
+```
 //全局捕获异常
 CrashHandler crashHandler = CrashHandler.getInstance();
 crashHandler.init(this);
 ```
 
 ### 上传捕获的崩溃日志
-```java
+```
 /**
  * 上传崩溃日志文件
  */

@@ -13,7 +13,7 @@
 * 设置EditText的android:digits 属性， 这种方式可以指出要支持的字符。
 >比如要限制只能输入数字和字母，可以这样：
 
-```xml
+```
 android:digits="0123456789abcdefghijklmnopqrstuvwxyz"。 PS：吐槽一下，写着好累，不支持区间操作符~或-
 ```
 
@@ -23,7 +23,7 @@ android:digits="0123456789abcdefghijklmnopqrstuvwxyz"。 PS：吐槽一下，写
 说白了就是用户可以随便按键盘，在代码里马上删掉非法字符。
  PS： 常见的搜索功能输入框就是用TextWatcher监测关键词变化，然后查数据并显示出来了。
  示例代码：只能输入字母或者数字， 如果要支持其它字符可以修改regEx正则表达式。
-```java
+```
 evPwd = (EditText) findViewById(R.id.ev_password);
 evPwd.addTextChangedListener(new TextWatcher() {
     @Override
@@ -47,7 +47,7 @@ evPwd.addTextChangedListener(new TextWatcher() {
 ```
 
 * 通过InputFilter来实现。实现InputFilter过滤器， 需要覆盖一个叫filter的方法。
-```java
+```
 public abstract CharSequence filter (
     CharSequence source,  //输入的文字
     int start,  //开始位置
@@ -62,7 +62,7 @@ public abstract CharSequence filter (
 
 > 下面的实现使得EditText只接收字符（数字、字母），Character.isLetterOrDigit会把中文也当做Letter， 所以要在写个正则判断是否中文。
 
-```java
+```
 evPwd.setFilters(new InputFilter[]{
     new InputFilter() {
         @Override

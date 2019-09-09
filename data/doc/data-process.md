@@ -7,7 +7,7 @@
 <string name="data">%1$s %2$d %3$.2f</string>
 ```
 
-```java
+```
 mContext.getString(R.string.data, parame1,parame2,parame3)
 ```
 

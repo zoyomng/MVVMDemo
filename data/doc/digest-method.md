@@ -362,14 +362,14 @@ public class RSAUtils {
 }
 ```
 ##### 公钥
-```java
+```
 public static final String PUBLIC_KEY ="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC0cJyPK+" +
             "aua/APDiPFVkgYfdKUopBr4o2M0civmNcHa2m6GgHICirGQ5+oc4onHiSAO7PaG0hm82nZKWXhnAI" +
             "kQbnYmBayWLkpb0sramPDpvw74dEJYhQnm/CoV3EMtUnXQCcCdaxyoFIvspGp6O9M6h8QcgU2czvL" +
             "DhM0ktIPGwIDAQAB";
 ```
 
-```java
+```
 //获取验证码前对数据加密
 String sourceData = "{" +
         "\"phone\": \"" + phone + "\"," +

@@ -1,7 +1,7 @@
 # Android drawable-start / end / top / bottom
 
 #### xml中设置文本图标
-```java
+```xml
 <TextView
     android:id="@+id/tv_first_order"
     android:layout_width="wrap_content"
@@ -12,7 +12,7 @@
 ```
 
 #### 代码中替换图标
-```java
+```
 Drawable firstOrderDrawable = mContext.getDrawable(R.mipmap.icon_first_order);
 firstOrderDrawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());//非常重要，必须设置，否则图片不会显示
 

@@ -2,7 +2,7 @@
 
 ## 支付宝支付
 
-```java
+```
 AliPay.alipayPay(orderInfo, Activity_Pay.this);
 ```
 
@@ -51,7 +51,7 @@ public class AliPay {
 
 ## 微信支付
 
-```java
+```
 WXPayResultBean wxPayResultBean = GsonUtils.json2Bean(response, WXPayResultBean.class);
 WXPayResultBean.DataBean wxData = wxPayResultBean.data;
 
@@ -188,7 +188,7 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
 ```
 
 #### AndroidManifest.xml
-```java
+```
 <!-- 支付宝支付：start -->
 <activity
     android:name="com.alipay.sdk.app.H5PayActivity"
