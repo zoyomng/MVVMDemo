@@ -1,4 +1,4 @@
-package com.zoyo.core.common.image;
+package com.zoyo.core.common.imageloader;
 
 /**
  * 图片加载框架(策略设计模式)

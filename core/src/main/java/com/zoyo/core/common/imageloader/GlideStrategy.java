@@ -1,4 +1,4 @@
-package com.zoyo.core.common.image;
+package com.zoyo.core.common.imageloader;
 
 public class GlideStrategy implements ILoderStrategy {
 

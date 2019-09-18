@@ -1,4 +1,4 @@
-package com.zoyo.core.common.image;
+package com.zoyo.core.common.imageloader;
 
 import android.graphics.Bitmap;
 import android.net.Uri;

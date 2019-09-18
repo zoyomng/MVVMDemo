@@ -3,8 +3,7 @@ package com.zoyo.core.common.utils;
 
 import android.util.Log;
 
-import com.zoyo.common.BuildConfig;
-
+import com.zoyo.core.BuildConfig;
 
 /**
  * log日志(仅debug模式下显示)
