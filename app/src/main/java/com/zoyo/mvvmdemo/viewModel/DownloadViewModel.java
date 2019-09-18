@@ -5,7 +5,7 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
-import com.zoyo.core.base.BaseViewModel;
+import com.zoyo.core.mvvm.base.BaseViewModel;
 import com.zoyo.mvvmdemo.app.Constants;
 import com.zoyo.mvvmdemo.model.repository.DownloadRepository;
 import com.zoyo.net.download.DownloadManager;

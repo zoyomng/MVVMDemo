@@ -1,4 +1,4 @@
-package com.zoyo.mvvmdemo.model;
+package com.zoyo.mvvmdemo.model.bean;
 
 /**
  * ---日期----------维护人-----------变更内容----------

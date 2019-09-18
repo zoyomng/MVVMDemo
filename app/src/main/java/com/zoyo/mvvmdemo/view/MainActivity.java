@@ -8,7 +8,7 @@ import android.transition.TransitionInflater;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
 
-import com.zoyo.core.base.BaseActivity;
+import com.zoyo.core.mvvm.base.BaseActivity;
 import com.zoyo.data.MultiLayoutActivity;
 import com.zoyo.data.motionlayout.ui.ConstraintActivity;
 import com.zoyo.data.motionlayout.ui.FragmentExampleActivity;
@@ -30,7 +30,7 @@ public class MainActivity extends BaseActivity<MainViewModel> {
 
     @Override
     protected int getLayoutId(Bundle savedInstanceState) {
-        return R.layout.activity_theme_main;
+        return R.layout.activity_main;
     }
 
     @Override

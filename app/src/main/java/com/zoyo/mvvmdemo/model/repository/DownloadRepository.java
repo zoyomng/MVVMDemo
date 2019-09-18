@@ -1,6 +1,6 @@
 package com.zoyo.mvvmdemo.model.repository;
 
-import com.zoyo.core.base.BaseRepository;
+import com.zoyo.core.mvvm.base.BaseRepository;
 
 /**
  * @Description: java类作用描述

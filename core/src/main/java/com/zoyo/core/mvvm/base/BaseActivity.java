@@ -1,4 +1,4 @@
-package com.zoyo.core.base;
+package com.zoyo.core.mvvm.base;
 
 import android.os.Bundle;
 
@@ -7,7 +7,8 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.zoyo.core.utils.TypeUtil;
+import com.zoyo.core.mvvm.livedatabus.LiveDataBus;
+import com.zoyo.core.mvvm.utils.TypeUtil;
 
 public abstract class BaseActivity<VM extends BaseViewModel> extends RxAppCompatActivity implements IBaseView {
 
@@ -22,6 +23,7 @@ public abstract class BaseActivity<VM extends BaseViewModel> extends RxAppCompat
         initViewDataBinding(savedInstanceState);
         //初始化数据
         initData();
+
     }
 
     /**

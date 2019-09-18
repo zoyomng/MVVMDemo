@@ -2,8 +2,8 @@ package com.zoyo.mvvmdemo.model.repository;
 
 import com.zoyo.common.rx.RxSubscriber;
 import com.zoyo.common.rx.RxUtil;
-import com.zoyo.core.base.BaseRepository;
-import com.zoyo.core.base.OnDataCallback;
+import com.zoyo.core.mvvm.base.BaseRepository;
+import com.zoyo.core.mvvm.base.OnDataCallback;
 import com.zoyo.mvvmdemo.model.API;
 import com.zoyo.mvvmdemo.model.bean.MainResponse;
 import com.zoyo.net.Response;

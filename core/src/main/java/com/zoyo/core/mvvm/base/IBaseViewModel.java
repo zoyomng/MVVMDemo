@@ -1,4 +1,4 @@
-package com.zoyo.core.base;
+package com.zoyo.core.mvvm.base;
 
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;

@@ -1,4 +1,4 @@
-package com.zoyo.core.utils;
+package com.zoyo.core.mvvm.utils;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;

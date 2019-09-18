@@ -1,4 +1,4 @@
-package com.zoyo.core.base;
+package com.zoyo.core.mvvm.base;
 
 import android.app.Application;
 
@@ -8,7 +8,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 
 import com.trello.rxlifecycle2.LifecycleProvider;
-import com.zoyo.core.utils.TypeUtil;
+import com.zoyo.core.mvvm.utils.TypeUtil;
 
 import java.lang.ref.WeakReference;
 

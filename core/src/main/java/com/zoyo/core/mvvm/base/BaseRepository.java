@@ -1,4 +1,4 @@
-package com.zoyo.core.base;
+package com.zoyo.core.mvvm.base;
 
 import com.zoyo.net.RetrofitConfigs;
 import com.zoyo.net.RetrofitManager;

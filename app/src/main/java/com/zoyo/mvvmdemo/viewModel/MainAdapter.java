@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.zoyo.mvvmdemo.R;
 import com.zoyo.mvvmdemo.databinding.ItemMainBinding;
-import com.zoyo.mvvmdemo.model.ItemBean;
+import com.zoyo.mvvmdemo.model.bean.ItemBean;
 
 import java.util.List;
 

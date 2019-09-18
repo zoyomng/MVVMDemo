@@ -1,10 +1,10 @@
-package com.zoyo.core.binding.viewadapter.recyclerview;
+package com.zoyo.core.mvvm.binding.viewadapter.recyclerview;
 
 import androidx.annotation.LayoutRes;
 import androidx.databinding.BindingAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.zoyo.core.binding.adapter.recyclerview.BaseAdapter;
+import com.zoyo.core.mvvm.binding.adapter.recyclerview.BaseAdapter;
 
 import java.util.List;
 

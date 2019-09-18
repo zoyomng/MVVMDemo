@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="com.zoyo.mvvmdemo.model.ItemBean" />
+            type="com.zoyo.mvvmdemo.model.bean.ItemBean" />
 
     </data>
 

@@ -3,7 +3,7 @@ package com.zoyo.mvvmdemo.view;
 import android.os.Bundle;
 import android.view.View;
 
-import com.zoyo.core.base.BaseActivity;
+import com.zoyo.core.mvvm.base.BaseActivity;
 import com.zoyo.mvvmdemo.BR;
 import com.zoyo.mvvmdemo.R;
 import com.zoyo.mvvmdemo.viewModel.DownloadViewModel;

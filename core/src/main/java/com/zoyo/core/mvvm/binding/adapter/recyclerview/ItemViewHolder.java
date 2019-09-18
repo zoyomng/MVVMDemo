@@ -1,4 +1,4 @@
-package com.zoyo.core.binding.adapter.recyclerview;
+package com.zoyo.core.mvvm.binding.adapter.recyclerview;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.ViewDataBinding;

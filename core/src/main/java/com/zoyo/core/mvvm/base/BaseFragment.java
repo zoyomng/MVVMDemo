@@ -1,4 +1,4 @@
-package com.zoyo.core.base;
+package com.zoyo.core.mvvm.base;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.zoyo.core.utils.TypeUtil;
+import com.zoyo.core.mvvm.utils.TypeUtil;
 
 
 public abstract class BaseFragment<VM extends BaseViewModel> extends RxFragment implements IBaseView {

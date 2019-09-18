@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-package com.zoyo.core.base;
+package com.zoyo.core.mvvm.base;
 
 import android.os.Bundle;
 import android.view.View;
