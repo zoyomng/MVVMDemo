@@ -1,6 +1,6 @@
 package com.zoyo.mvvmdemo.model;
 
-import com.zoyo.net.Response;
+import com.zoyo.core.common.net.Response;
 
 import io.reactivex.Flowable;
 import retrofit2.http.GET;

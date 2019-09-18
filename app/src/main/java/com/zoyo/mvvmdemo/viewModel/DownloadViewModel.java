@@ -8,8 +8,8 @@ import androidx.lifecycle.MutableLiveData;
 import com.zoyo.core.mvvm.base.BaseViewModel;
 import com.zoyo.mvvmdemo.app.Constants;
 import com.zoyo.mvvmdemo.model.repository.DownloadRepository;
-import com.zoyo.net.download.DownloadManager;
-import com.zoyo.net.download.ProgressSubscriber;
+import com.zoyo.core.common.net.download.DownloadManager;
+import com.zoyo.core.common.net.download.ProgressSubscriber;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,7 +28,7 @@ public class DownloadViewModel extends BaseViewModel<DownloadRepository> {
 
     public void download() {
         try {
-            File tempFile = File.createTempFile("icmes-presentation", ".apk", com.zoyo.common.application.Constants.FILE_DOWNLOAD);
+            File tempFile = File.createTempFile("icmes-presentation", ".apk", com.zoyo.core.common.constants.Constants.FILE_DOWNLOAD);
             DownloadManager.getInstance().downloadFile(Constants.APK_URL, tempFile.getAbsolutePath(), new ProgressSubscriber() {
                 @Override
                 public void onStart() {

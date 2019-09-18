@@ -1,9 +1,9 @@
 package com.zoyo.mvvmdemo.app;
 
-import com.zoyo.common.application.BaseApplication;
+import com.zoyo.core.BaseApplication;
 import com.zoyo.mvvmdemo.BuildConfig;
 import com.zoyo.mvvmdemo.model.API;
-import com.zoyo.net.RetrofitConfigs;
+import com.zoyo.core.common.net.RetrofitConfigs;
 
 public class MyApplication extends BaseApplication {
 

@@ -7,7 +7,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
-import com.zoyo.common.utils.ToastUtil;
+import com.zoyo.core.common.utils.ToastUtil;
 import com.zoyo.core.mvvm.base.BaseViewModel;
 import com.zoyo.core.mvvm.base.OnDataCallback;
 import com.zoyo.core.mvvm.binding.adapter.recyclerview.BaseAdapter;
@@ -18,7 +18,7 @@ import com.zoyo.mvvmdemo.databinding.ItemMainBinding;
 import com.zoyo.mvvmdemo.model.bean.ItemBean;
 import com.zoyo.mvvmdemo.model.bean.MainResponse;
 import com.zoyo.mvvmdemo.model.repository.MainRepository;
-import com.zoyo.net.Response;
+import com.zoyo.core.common.net.Response;
 
 import java.util.ArrayList;
 

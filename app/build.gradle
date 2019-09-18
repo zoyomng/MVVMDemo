@@ -35,7 +35,6 @@ android {
 
 dependencies {
     implementation project(path: ':core')
-    implementation project(path: ':common')
     implementation project(path: ':data')
 
 }

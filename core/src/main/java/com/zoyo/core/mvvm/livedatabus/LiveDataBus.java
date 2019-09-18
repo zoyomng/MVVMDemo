@@ -22,6 +22,7 @@ import java.util.Map;
  * }
  * });
  * 发送消息: LiveDataBus.get().with("key_test").setValue("s");
+ * 发送消息: LiveDataBus.get().with("key_test").postValue("s");
  * @Author: https://tech.meituan.com/2018/07/26/android-livedatabus.html
  * @CreateDate: 2019/9/17 11:04
  */
@@ -41,10 +42,24 @@ public class LiveDataBus {
         return SingletonHolder.DEFAULT_BUS;
     }
 
+    /**
+     * 用作发送使用
+     *
+     * @param key
+     * @return
+     */
     public MutableLiveData<Object> with(String key) {
         return with(key, Object.class);
     }
 
+    /**
+     * 用作订阅使用
+     *
+     * @param key
+     * @param type
+     * @param <T>
+     * @return
+     */
     public <T> MutableLiveData<T> with(String key, Class<T> type) {
         if (!bus.containsKey(key)) {
             bus.put(key, new BusMutableLiveData<>());

@@ -1,7 +1,7 @@
 package com.zoyo.core.mvvm.base;
 
-import com.zoyo.net.RetrofitConfigs;
-import com.zoyo.net.RetrofitManager;
+import com.zoyo.core.common.net.RetrofitConfigs;
+import com.zoyo.core.common.net.RetrofitManager;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
