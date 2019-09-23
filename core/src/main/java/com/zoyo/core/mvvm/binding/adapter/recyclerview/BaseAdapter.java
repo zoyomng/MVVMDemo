@@ -22,8 +22,13 @@ public class BaseAdapter<E> extends RecyclerView.Adapter<ItemViewHolder> {
     public int variableId;
     public OnItemClickListener onItemClickListener;
 
+
     /**
      * item布局不同,item中变量不同,数据不同
+     *
+     * @param layoutRes  条目布局
+     * @param variableId 变量
+     * @param data       数据
      */
     public BaseAdapter(@LayoutRes int layoutRes, int variableId, List<E> data) {
         this.defaultLayoutRes = layoutRes;
@@ -93,8 +98,6 @@ public class BaseAdapter<E> extends RecyclerView.Adapter<ItemViewHolder> {
     }
 
     /**
-     * TODO DataBinding不是数据改变,显示随之改变吗,为什么还要写这些方法??
-     *
      * @param newData
      */
     public void onItemDataChangeed(List<E> newData) {

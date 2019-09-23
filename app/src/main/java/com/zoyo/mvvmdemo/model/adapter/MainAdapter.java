@@ -1,4 +1,4 @@
-package com.zoyo.mvvmdemo.viewModel;
+package com.zoyo.mvvmdemo.model.adapter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
