@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.MutableLiveData;
 
 import com.trello.rxlifecycle2.LifecycleProvider;
 import com.zoyo.core.mvvm.utils.TypeUtil;
@@ -23,13 +24,16 @@ public class BaseViewModel<M extends BaseRepository> extends AndroidViewModel im
     //弱引用持有
     private WeakReference<LifecycleProvider> lifecycle;
     private CompositeDisposable compositeDisposable;
-    protected final M model;
+    protected final M repository;
+
+    //状态值
+    public MutableLiveData<Integer> statusValue = new MutableLiveData<>();
 
     public BaseViewModel(@NonNull Application application) {
         super(application);
 
         //获取泛型中Model对象实例
-        model = TypeUtil.getClassInstance(this, 0);
+        repository = TypeUtil.getClassInstance(this, 0);
     }
 
 
@@ -57,8 +61,8 @@ public class BaseViewModel<M extends BaseRepository> extends AndroidViewModel im
     @Override
     protected void onCleared() {
         super.onCleared();
-        if (model != null) {
-            model.onCleared();
+        if (repository != null) {
+            repository.onCleared();
         }
         //ViewModel销毁时取消所有订阅
         if (compositeDisposable != null && !compositeDisposable.isDisposed()) {
@@ -84,7 +88,6 @@ public class BaseViewModel<M extends BaseRepository> extends AndroidViewModel im
 
     @Override
     public void onStart() {
-
     }
 
     @Override

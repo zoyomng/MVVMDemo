@@ -53,13 +53,18 @@ public class MainViewModel extends BaseViewModel<MainRepository> {
     public MainViewModel(@NonNull Application application) {
         super(application);
 
-        model.request(new OnDataCallback<Response<MainResponse>>() {
+        request();
+    }
+
+    public void request() {
+        repository.request(statusValue, new OnDataCallback<Response<MainResponse>>() {
             @Override
             public void onData(Response<MainResponse> mainResponseResponse) {
                 System.out.println("===============" + mainResponseResponse.toString());
             }
         });
     }
+
     public ArrayList<ItemBean> initItemDatas() {
         itemBeans.add(new ItemBean("DataBinding的使用", Constants.BG_COLORS[0]));
         itemBeans.add(new ItemBean("跳转Activity的动画", Constants.BG_COLORS[1]));

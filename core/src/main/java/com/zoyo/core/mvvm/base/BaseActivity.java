@@ -1,19 +1,24 @@
 package com.zoyo.core.mvvm.base;
 
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.zoyo.core.mvvm.livedatabus.LiveDataBus;
+import com.zoyo.core.common.constants.Constants;
+import com.zoyo.core.common.multistatusmanager.MultiStatusManager;
+import com.zoyo.core.common.multistatusmanager.OnStatusChildClickListener;
 import com.zoyo.core.mvvm.utils.TypeUtil;
 
 public abstract class BaseActivity<VM extends BaseViewModel> extends RxAppCompatActivity implements IBaseView {
 
     public VM viewModel;
     public ViewDataBinding dataBinding;
+    private MultiStatusManager multiStatusManager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -21,10 +26,13 @@ public abstract class BaseActivity<VM extends BaseViewModel> extends RxAppCompat
         AppManager.getInstance().addActivity(this);
         //初始化DataBinding
         initViewDataBinding(savedInstanceState);
+        //初始化多状态管理器
+        setupMultiStatusManager();
         //初始化数据
         initData();
 
     }
+
 
     /**
      * 注入绑定
@@ -53,6 +61,72 @@ public abstract class BaseActivity<VM extends BaseViewModel> extends RxAppCompat
         return (VM) ViewModelProviders.of(this).get(TypeUtil.getClassType(this, 0, BaseViewModel.class));
     }
 
+    /**
+     * 初始化多状态管理器
+     */
+    protected void setupMultiStatusManager() {
+        View contentLayout = findViewById(getContentLayoutId());
+        multiStatusManager = new MultiStatusManager.Builder(contentLayout == null ? findViewById(android.R.id.content) : contentLayout)
+                .setDefaultErrorClickViewVisible(true)
+                .setDefaultErrorClickViewText("reload")
+                .setDefaultLayoutsBackgroundColor(0xffff0000)
+                .setOnStatusChildClickListener(new OnStatusChildClickListener() {
+                    @Override
+                    public void onEmptyChildClick(View view) {
+                        onStatusRefresh();
+                    }
+
+                    @Override
+                    public void onErrorChildClick(View view) {
+                        onStatusRefresh();
+                    }
+
+                    @Override
+                    public void onCustomerChildClick(View view) {
+
+                    }
+                })
+                .build();
+
+        viewModel.statusValue.observe(this, new Observer<Integer>() {
+            @Override
+            public void onChanged(@Nullable Integer integer) {
+                switch (integer) {
+                    case Constants.STAUTS_LOADING:
+                        multiStatusManager.showLoadingLayout();
+                        break;
+                    case Constants.STATUS_NETWORK_ERROR:
+                        multiStatusManager.showErrorLayout();
+                        break;
+                    case Constants.STATUS_SERVER_ERROR:
+                        multiStatusManager.showErrorLayout();
+                        break;
+                    case Constants.STATUS_SUCCESS:
+                        multiStatusManager.showSuccessLayout();
+                        break;
+
+                    default:
+                        multiStatusManager.showSuccessLayout();
+                        break;
+                }
+            }
+        });
+    }
+
+    /**
+     * 重刷数据
+     */
+    protected void onStatusRefresh() {
+    }
+
+    /**
+     * 多状态加载根布局
+     *
+     * @return
+     */
+    protected int getContentLayoutId() {
+        return 0;
+    }
 
     /**
      * 页面布局

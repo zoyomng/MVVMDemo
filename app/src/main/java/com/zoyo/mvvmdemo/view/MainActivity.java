@@ -17,15 +17,22 @@ import com.zoyo.mvvmdemo.viewModel.MainViewModel;
 
 public class MainActivity extends BaseActivity<MainViewModel> {
 
+
+    @Override
+    protected int getLayoutId(Bundle savedInstanceState) {
+        return R.layout.activity_main;
+    }
+
     @Override
     protected int initViewModelId() {
         return BR.viewModel;
     }
 
     @Override
-    protected int getLayoutId(Bundle savedInstanceState) {
-        return R.layout.activity_main;
+    protected int getContentLayoutId() {
+        return R.id.contentLayout;
     }
+
 
     @Override
     public void initData() {
@@ -65,4 +72,9 @@ public class MainActivity extends BaseActivity<MainViewModel> {
         });
     }
 
+    @Override
+    protected void onStatusRefresh() {
+        super.onStatusRefresh();
+        viewModel.request();
+    }
 }

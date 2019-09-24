@@ -19,6 +19,8 @@ import com.zoyo.mvvmdemo.viewModel.MotionViewModel;
  * @CreateDate: 2019/9/23 13:53
  */
 public class MotionActivity extends BaseActivity<MotionViewModel> {
+
+
     @Override
     protected int getLayoutId(Bundle savedInstanceState) {
         return R.layout.activity_motion;
@@ -29,6 +31,10 @@ public class MotionActivity extends BaseActivity<MotionViewModel> {
         return BR.viewModel;
     }
 
+    @Override
+    protected int getContentLayoutId() {
+        return R.id.contentLayout;
+    }
     @Override
     public void initData() {
         super.initData();

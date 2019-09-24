@@ -15,6 +15,7 @@ import com.zoyo.mvvmdemo.viewModel.DownloadViewModel;
  */
 public class DownloadActivity extends BaseActivity<DownloadViewModel> implements View.OnClickListener {
 
+
     @Override
     protected int getLayoutId(Bundle savedInstanceState) {
         return R.layout.activity_download;
@@ -28,5 +29,10 @@ public class DownloadActivity extends BaseActivity<DownloadViewModel> implements
     @Override
     public void onClick(View v) {
 
+    }
+
+    @Override
+    protected int getContentLayoutId() {
+        return R.id.contentLayout;
     }
 }
