@@ -5,22 +5,20 @@ import android.content.Intent;
 
 import androidx.annotation.Nullable;
 
-class InitializeService extends IntentService {
+/**
+ * 费时的初始化项可以放在IntentService中进行
+ */
+public class InitializeService extends IntentService {
     private static final String ACTION_INIT = "initApplication";
 
-    /**
-     * Creates an IntentService.  Invoked by your subclass's constructor.
-     *
-     * @param name Used to name the worker thread, important only for debugging.
-     */
     MyApplication myApplication;
 
-    public InitializeService(String name) {
-        super(name);
+    public InitializeService() {
+        super("InitializeService");
     }
 
     public static void start(MyApplication myApplication) {
-        Intent intent = new Intent(myApplication, IntentService.class);
+        Intent intent = new Intent(myApplication, InitializeService.class);
         intent.setAction(ACTION_INIT);
         myApplication.startService(intent);
     }
@@ -35,17 +33,6 @@ class InitializeService extends IntentService {
     }
 
     private void initApplication() {
-//        RetrofitManager.Configs builder = new RetrofitManager.Configs();
-//        builder.application(myApplication)
-//                .connectTimeout(10)
-//                .writeTimeout(20)
-//                .readTimeout(20)
-//                .showLog(BuildConfig.DEBUG)
-//                .baseUrl(API.BASE_URL)
-//                .token("");
-
-//        ImageLoader.getInstance().setGlobalImageStrategy();
-
-
+        System.out.println("初始化服务");
     }
 }

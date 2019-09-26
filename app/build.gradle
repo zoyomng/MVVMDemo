@@ -36,5 +36,6 @@ android {
 dependencies {
     implementation project(path: ':core')
     implementation project(path: ':data')
+    testImplementation 'junit:junit:4.12'
 
 }

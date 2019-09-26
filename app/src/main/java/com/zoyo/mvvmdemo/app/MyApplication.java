@@ -15,14 +15,6 @@ public class MyApplication extends BaseApplication {
         instance = this;
         InitializeService.start(this);
 
-//        RetrofitConfigs.getInstance()
-//                .connectTimeout(10)
-//                .writeTimeout(20)
-//                .readTimeout(20)
-//                .showLog(BuildConfig.DEBUG)
-//                .baseUrl(API.BASE_URL)
-//                .token("");
-
         RetrofitManager.Configs.getInstance()
                 .baseUrl(API.BASE_URL)
                 .connectTimeout(20)

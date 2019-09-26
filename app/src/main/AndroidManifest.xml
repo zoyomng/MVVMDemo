@@ -40,6 +40,8 @@
         <activity android:name=".view.DownloadActivity" />
         <activity android:name=".view.MotionActivity" />
         <activity android:name=".view.ToastTestActivity" />
+
+        <service android:name=".app.InitializeService" android:exported="false"/>
     </application>
 
 </manifest>
