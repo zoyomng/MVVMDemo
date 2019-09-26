@@ -72,10 +72,8 @@ public class MainViewModel extends BaseViewModel<MainRepository> {
         itemBeans.add(new ItemBean("ConstraintLayout + ConstraintSet 实现动画", Constants.BG_COLORS[3]));
         itemBeans.add(new ItemBean("一个Activity加载多个布局", Constants.BG_COLORS[4]));
         itemBeans.add(new ItemBean("MotionLayout使用介绍", Constants.BG_COLORS[5]));
-
+        itemBeans.add(new ItemBean("Toast", Constants.BG_COLORS[6]));
 
         return itemBeans;
     }
-
-
 }

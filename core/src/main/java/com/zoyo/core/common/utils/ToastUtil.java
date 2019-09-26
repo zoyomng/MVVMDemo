@@ -1,5 +1,7 @@
 package com.zoyo.core.common.utils;
 
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import android.widget.Toast;
 
 import androidx.annotation.StringRes;
@@ -13,22 +15,31 @@ import com.zoyo.core.BaseApplication;
 public class ToastUtil {
 
 
-    private static final long INTERVAL_TIME = 2000;
     private static long tempTimeMillis = 0;
+    private static Toast toast;
+    private static CharSequence oldText;
 
     private ToastUtil() {
     }
 
     public static void shortShow(@StringRes int stringRes) {
-        if (isNeedToShow()) {
-            Toast.makeText(BaseApplication.getAppContext(), stringRes, Toast.LENGTH_SHORT).show();
-        }
+        CharSequence text = BaseApplication.getAppContext().getResources().getText(stringRes);
+        shortShow(text);
     }
 
-
-    public static void shortShow(CharSequence message) {
-        if (isNeedToShow()) {
-            Toast.makeText(BaseApplication.getAppContext(), message, Toast.LENGTH_SHORT).show();
+    @SuppressLint("ShowToast")
+    public static void shortShow(CharSequence text) {
+        if (toast == null) {
+            toast = Toast.makeText(BaseApplication.getAppContext(), text, Toast.LENGTH_SHORT);
+        }
+        if (TextUtils.equals(oldText, text)) {
+            if (isNeedToShow()) {
+                toast.show();
+            }
+        } else {
+            oldText = text;
+            toast.setText(text);
+            toast.show();
         }
     }
 
@@ -63,7 +74,7 @@ public class ToastUtil {
      * @return
      */
     private static boolean isNeedToShow() {
-        boolean isNeed = System.currentTimeMillis() - tempTimeMillis > INTERVAL_TIME;
+        boolean isNeed = System.currentTimeMillis() - tempTimeMillis > Toast.LENGTH_SHORT;
         if (isNeed) {
             tempTimeMillis = System.currentTimeMillis();
         }

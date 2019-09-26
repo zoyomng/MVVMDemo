@@ -61,8 +61,10 @@ public class MainActivity extends BaseActivity<MainViewModel> {
                         startActivity(new Intent(MainActivity.this, MultiLayoutActivity.class));
                         break;
                     case 5:
-                        Intent intent = new Intent(MainActivity.this, MotionActivity.class);
-                        startActivity(intent);
+                        startActivity(new Intent(MainActivity.this, MotionActivity.class));
+                        break;
+                    case 6:
+                        startActivity(new Intent(MainActivity.this, ToastTestActivity.class));
                         break;
 
                     default:

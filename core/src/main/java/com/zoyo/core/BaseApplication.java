@@ -2,6 +2,9 @@ package com.zoyo.core;
 
 import android.app.Application;
 import android.content.Context;
+import android.view.Gravity;
+
+import com.zoyo.core.widget.toast.Toasty;
 
 
 public class BaseApplication extends Application {
@@ -13,12 +16,24 @@ public class BaseApplication extends Application {
         super.onCreate();
         applicationContext = getApplicationContext();
         initAutoSize();
+        initToasty();
     }
+
 
     public static Context getAppContext() {
         return applicationContext;
     }
 
+    /**
+     * 初始化Toast配置
+     */
+    private void initToasty() {
+        Toasty.Config.getInstance()
+                .isTintIcon(true)
+                .setTextSize(16)
+                .setGravity(Gravity.CENTER, 0, 0)
+                .apply();
+    }
 
     /**
      * 初始化屏幕适配

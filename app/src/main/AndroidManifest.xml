@@ -39,6 +39,7 @@
         <activity android:name=".view.InOutAnimActivity" />
         <activity android:name=".view.DownloadActivity" />
         <activity android:name=".view.MotionActivity" />
+        <activity android:name=".view.ToastTestActivity" />
     </application>
 
 </manifest>
