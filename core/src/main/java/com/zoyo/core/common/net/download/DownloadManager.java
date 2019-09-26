@@ -26,17 +26,13 @@ public class DownloadManager {
     //文件下载一般为get请求,直接使用url,baseUrl无关紧要
     private static final String BASE_URL = "http://www.baidu.com/";
     private static final long DEFAULT_TIMEOUT = 10;
-    private static DownloadManager downloadManager;
     private OkHttpClient.Builder builder;
 
     private DownloadManager() {
     }
 
     public static DownloadManager getInstance() {
-        if (downloadManager == null) {
-            downloadManager = ManagerHolder.instance;
-        }
-        return downloadManager;
+        return ManagerHolder.instance;
     }
 
     private static class ManagerHolder {
@@ -51,7 +47,6 @@ public class DownloadManager {
      * @param progressSubscriber
      */
     public void downloadFile(String url, final String filePath, ProgressSubscriber progressSubscriber) {
-
 
         DownloadIntercepter downloadIntercepter = new DownloadIntercepter(progressSubscriber);
 
