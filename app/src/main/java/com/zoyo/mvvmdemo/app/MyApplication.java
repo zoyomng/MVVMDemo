@@ -1,9 +1,9 @@
 package com.zoyo.mvvmdemo.app;
 
 import com.zoyo.core.BaseApplication;
+import com.zoyo.core.common.net.RetrofitManager;
 import com.zoyo.mvvmdemo.BuildConfig;
 import com.zoyo.mvvmdemo.model.API;
-import com.zoyo.core.common.net.RetrofitConfigs;
 
 public class MyApplication extends BaseApplication {
 
@@ -15,12 +15,21 @@ public class MyApplication extends BaseApplication {
         instance = this;
         InitializeService.start(this);
 
-        RetrofitConfigs.getInstance()
-                .connectTimeout(10)
-                .writeTimeout(20)
-                .readTimeout(20)
-                .showLog(BuildConfig.DEBUG)
+//        RetrofitConfigs.getInstance()
+//                .connectTimeout(10)
+//                .writeTimeout(20)
+//                .readTimeout(20)
+//                .showLog(BuildConfig.DEBUG)
+//                .baseUrl(API.BASE_URL)
+//                .token("");
+
+        RetrofitManager.Configs.getInstance()
                 .baseUrl(API.BASE_URL)
-                .token("");
+                .connectTimeout(20)
+                .readTimeout(20)
+                .writeTimeout(20)
+                .showLog(BuildConfig.DEBUG)
+                .token("")
+                .apply();
     }
 }

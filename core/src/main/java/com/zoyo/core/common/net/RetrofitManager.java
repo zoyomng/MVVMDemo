@@ -1,6 +1,22 @@
 package com.zoyo.core.common.net;
 
+/**
+ * ---日期----------维护人-----------变更内容----------
+ * 2019/6/15       zozo          zozo
+ * 在Application中初始化
+ * RetrofitManager.Configs.getInstance()
+ * .baseUrl(API.BASE_URL)
+ * .connectTimeout(10)
+ * .readTimeout(10)
+ * .writeTimeout(10)
+ * .showLog(BuildConfig.DEBUG)
+ * .token("")
+ * .apply();
+ */
+
 import android.text.TextUtils;
+
+import androidx.annotation.CheckResult;
 
 import com.zoyo.core.common.constants.Constants;
 import com.zoyo.core.common.net.Interceptor.CacheInterceptor;
@@ -16,69 +32,38 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class RetrofitManager {
-    private String baseUrl = "";
-    private String cachePath;
-    private long connectTimeout = 10;
-    private long readTimeout = 10;
-    private long writeTimeout = 10;
-    private String token;
-    private Retrofit retrofit;
-    private boolean mBuildConfigDebug;
 
-    /**
-     * 单例-私有构造方法
-     */
+public class RetrofitManager {
+    private static final long DEFAULT_CONNECT_TIMEOUT = 10;
+    private static final long DEFAULT_READ_TIMEOUT = 10;
+    private static final long DEFAULT_WRITE_TIMEOUT = 10;
+
+    private static String baseUrl;
+    private static String cachePath;
+    private static long connectTimeout = DEFAULT_CONNECT_TIMEOUT;
+    private static long readTimeout = DEFAULT_READ_TIMEOUT;
+    private static long writeTimeout = DEFAULT_WRITE_TIMEOUT;
+    private static String token;
+    private static boolean buildConfigDebug;
+
     private RetrofitManager() {
     }
 
-    public static RetrofitManager getInstance() {
-        return RetrofitManagerHolder.instace;
-    }
-
-    private static class RetrofitManagerHolder {
-        static RetrofitManager instace = new RetrofitManager();
-    }
-
-    /**
-     * 加载配置参数
-     *
-     * @param configs
-     * @return
-     */
-    public RetrofitManager loadConfigs(RetrofitConfigs configs) {
-        this.baseUrl = configs.baseUrl;
-        this.cachePath = configs.cachePath;
-        this.connectTimeout = configs.connectTimeout;
-        this.readTimeout = configs.readTimeout;
-        this.writeTimeout = configs.writeTimeout;
-        this.token = configs.token;
-        this.mBuildConfigDebug = configs.mBuildConfigDebug;
-        return this;
-    }
-
-    /**
-     * 初始化OkHttp,Retrofit
-     *
-     * @return
-     */
-    private void initClient() {
-        OkHttpClient okHttpClient = initOkHttpClient();
-        retrofit = initRetrofitClient(okHttpClient);
-    }
-
-    private Retrofit initRetrofitClient(OkHttpClient okHttpClient) {
+    @CheckResult
+    public static Retrofit build() {
+        OkHttpClient okHttpClient = buildOkHttpClient();
         Retrofit.Builder builder = new Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(baseUrl);
+
         return builder.client(okHttpClient).build();
     }
 
-    private OkHttpClient initOkHttpClient() {
+    private static OkHttpClient buildOkHttpClient() {
         final OkHttpClient.Builder builder = new OkHttpClient.Builder();
         //BuildConfig.DEBUG:debug状态打印log
-        if (mBuildConfigDebug) {
+        if (buildConfigDebug) {
             HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
             loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
             builder.addInterceptor(loggingInterceptor);
@@ -100,57 +85,79 @@ public class RetrofitManager {
         return builder.build();
     }
 
-    public RetrofitManager build() {
-        initClient();
-        return this;
-    }
 
-    /**
-     * 加载API
-     *
-     * @param clazz
-     * @param <T>
-     * @return
-     */
-    public <T> T creat(Class<T> clazz) {
-        if (retrofit == null) {
-            initClient();
+    public static class Configs {
+        private String baseUrl;
+        private String cachePath;
+        private long connectTimeout = RetrofitManager.DEFAULT_CONNECT_TIMEOUT;
+        private long readTimeout = RetrofitManager.DEFAULT_READ_TIMEOUT;
+        private long writeTimeout = RetrofitManager.DEFAULT_WRITE_TIMEOUT;
+        private String token;
+        private boolean mBuildConfigDebug;
+
+        private Configs() {
         }
-        System.out.println("==========" + baseUrl + "===========" + connectTimeout + "===========" + readTimeout + "===========" + writeTimeout + "===========" + mBuildConfigDebug);
-        return retrofit.create(clazz);
+
+        @CheckResult
+        public static Configs getInstance() {
+            return new Configs();
+        }
+
+        @CheckResult
+        public Configs baseUrl(String baseUrl) {
+            this.baseUrl = baseUrl;
+            return this;
+        }
+
+        @CheckResult
+        public Configs cachePath(String cachePath) {
+            this.cachePath = cachePath;
+            return this;
+        }
+
+        @CheckResult
+        public Configs connectTimeout(long connectTimeout) {
+            this.connectTimeout = connectTimeout;
+            return this;
+        }
+
+        @CheckResult
+        public Configs readTimeout(long readTimeout) {
+            this.readTimeout = readTimeout;
+            return this;
+        }
+
+        @CheckResult
+        public Configs writeTimeout(long writeTimeout) {
+            this.writeTimeout = writeTimeout;
+            return this;
+        }
+
+        @CheckResult
+        public Configs token(String token) {
+            this.token = token;
+            return this;
+        }
+
+        /**
+         * @param mBuildConfigDebug :BuildConfig.DEBUG
+         * @return
+         */
+        @CheckResult
+        public Configs showLog(boolean mBuildConfigDebug) {
+            this.mBuildConfigDebug = mBuildConfigDebug;
+            return this;
+        }
+
+        public void apply() {
+            RetrofitManager.baseUrl = baseUrl;
+            RetrofitManager.cachePath = cachePath;
+            RetrofitManager.connectTimeout = connectTimeout;
+            RetrofitManager.readTimeout = readTimeout;
+            RetrofitManager.writeTimeout = writeTimeout;
+            RetrofitManager.token = token;
+            RetrofitManager.buildConfigDebug = mBuildConfigDebug;
+        }
     }
+
 }
-
-//TODO header中添加设备信息,版本信息
-
-//    // 设备类型
-//    enum PBDeviceType {
-//        DEVICE_ANDROID = 0;                      // 安卓
-//        DEVICE_IOS = 1;                          // 苹果
-//        DEVICE_PC = 2;                           // PC
-//    }
-//
-//    // 设备
-//    message PBDevice {
-//        string deviceId = 1;                    // 设备ID
-//        string deviceOs = 2;                    // 设备操作系统
-//        string deviceModel = 3;                 // 设备模型
-//        PBDeviceType deviceType = 4;             // 设备类型，参考PBDeviceType
-//    }
-//
-//    // 网络类型
-//    enum PBNetworkType {
-//        NET_UNKNOWN = 0;                         // 未知网络
-//        NET_WIFI = 1;                            // WIFI
-//        NET_2G = 2;                              // 2G网络
-//        NET_3G = 3;                              // 3G网络
-//        NET_4G = 4;                              // 4G网络
-//    }
-//
-//    // APP信息
-//    message PBAppInfo {
-//        string versionName = 1;                 // 应用程序版本名
-//        uint32 versionCode = 2;                 // 应用程序版本号
-//        PBNetworkType network = 3;               // 网络信息
-//        PBDevice device = 4;                     // 设备信息
-//    }

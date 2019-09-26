@@ -27,7 +27,7 @@ import com.zoyo.core.R;
  * 2.多次连续点击,会有一段时间不显示吐司
  * 3.自定义吐司
  * Application中初始化配置(可不初始化)
- * Toasty.Config.getInstance()
+ * Toasty.Configs.getInstance()
  * .isTintIcon(true)
  * .setTextSize(16)
  * .setGravity(Gravity.CENTER, 0, 0)

@@ -1,10 +1,10 @@
 package com.zoyo.core.mvvm.base;
 
-import com.zoyo.core.common.net.RetrofitConfigs;
 import com.zoyo.core.common.net.RetrofitManager;
 
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
+import retrofit2.Retrofit;
 
 /**
  * 可以理解为: MVVM-Model中的获取数据的仓库
@@ -12,7 +12,8 @@ import io.reactivex.disposables.Disposable;
 public class BaseRepository implements IModel {
 
     private CompositeDisposable compositeDisposable;
-    protected RetrofitManager mRetrofitManager = RetrofitManager.getInstance().loadConfigs(RetrofitConfigs.getInstance()).build();
+
+    protected Retrofit retrofit = RetrofitManager.build();
 
     public BaseRepository() {
 

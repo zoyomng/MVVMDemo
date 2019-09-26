@@ -35,7 +35,7 @@ class InitializeService extends IntentService {
     }
 
     private void initApplication() {
-//        RetrofitManager.Builder builder = new RetrofitManager.Builder();
+//        RetrofitManager.Configs builder = new RetrofitManager.Configs();
 //        builder.application(myApplication)
 //                .connectTimeout(10)
 //                .writeTimeout(20)
@@ -45,5 +45,7 @@ class InitializeService extends IntentService {
 //                .token("");
 
 //        ImageLoader.getInstance().setGlobalImageStrategy();
+
+
     }
 }
