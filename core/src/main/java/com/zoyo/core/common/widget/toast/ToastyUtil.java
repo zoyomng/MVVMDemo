@@ -1,4 +1,4 @@
-package com.zoyo.core.widget.toast;
+package com.zoyo.core.common.widget.toast;
 
 import android.content.Context;
 import android.graphics.PorterDuff;

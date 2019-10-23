@@ -11,7 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.zoyo.core.widget.toast.Toasty;
+import com.zoyo.core.common.widget.toast.Toasty;
 import com.zoyo.mvvmdemo.R;
 
 import static android.graphics.Typeface.BOLD_ITALIC;

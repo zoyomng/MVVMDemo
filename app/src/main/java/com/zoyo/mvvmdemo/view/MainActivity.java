@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer;
 
 import com.zoyo.core.mvvm.base.BaseActivity;
 import com.zoyo.data.MultiLayoutActivity;
+import com.zoyo.data.dialog.DialogActivity;
 import com.zoyo.data.motionlayout.ui.ConstraintActivity;
 import com.zoyo.mvvmdemo.BR;
 import com.zoyo.mvvmdemo.R;
@@ -65,6 +66,9 @@ public class MainActivity extends BaseActivity<MainViewModel> {
                         break;
                     case 6:
                         startActivity(new Intent(MainActivity.this, ToastTestActivity.class));
+                        break;
+                    case 7:
+                        startActivity(new Intent(MainActivity.this, DialogActivity.class));
                         break;
 
                     default:

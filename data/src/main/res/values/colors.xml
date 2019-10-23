@@ -10,4 +10,5 @@
     <color name="error">#E53935</color> <!-- Red 600 -->
 
     <color name="main_black">#333</color>
+    <color name="color_999">#999</color>
 </resources>

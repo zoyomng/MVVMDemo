@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.view.Gravity;
 
-import com.zoyo.core.widget.toast.Toasty;
+import com.zoyo.core.common.widget.toast.Toasty;
 
 
 public class BaseApplication extends Application {

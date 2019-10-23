@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.zoyo.data">
 
+    <uses-permission android:name="android.permission.CAMERA" />
     <application>
         <activity android:name=".motionlayout.ui.ConstraintActivity" />
         <activity android:name=".MultiLayoutActivity" />
@@ -9,5 +10,6 @@
         <activity android:name=".motionlayout.ui.ViewPagerActivity" />
         <activity android:name=".motionlayout.ui.FragmentExampleActivity" />
         <activity android:name=".motionlayout.ui.YouTubeActivity" />
+        <activity android:name=".dialog.DialogActivity" />
     </application>
 </manifest>

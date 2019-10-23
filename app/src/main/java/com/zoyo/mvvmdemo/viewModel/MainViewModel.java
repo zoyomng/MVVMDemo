@@ -7,7 +7,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
 import com.zoyo.core.common.net.Response;
-import com.zoyo.core.common.utils.ToastUtil;
 import com.zoyo.core.mvvm.base.BaseViewModel;
 import com.zoyo.core.mvvm.base.OnDataCallback;
 import com.zoyo.core.mvvm.binding.adapter.recyclerview.BaseAdapter;
@@ -44,7 +43,6 @@ public class MainViewModel extends BaseViewModel<MainRepository> {
             ((ItemMainBinding) (viewHolder.getDataBinding())).ivAvatar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    ToastUtil.shortShow("click" + i++);
                 }
             });
         }
@@ -73,6 +71,7 @@ public class MainViewModel extends BaseViewModel<MainRepository> {
         itemBeans.add(new ItemBean("一个Activity加载多个布局", Constants.BG_COLORS[4]));
         itemBeans.add(new ItemBean("MotionLayout使用介绍", Constants.BG_COLORS[5]));
         itemBeans.add(new ItemBean("Toast", Constants.BG_COLORS[6]));
+        itemBeans.add(new ItemBean("DialogFragment的使用", Constants.BG_COLORS[7]));
 
         return itemBeans;
     }

@@ -116,4 +116,8 @@
     <string name="zero">0</string>
     <string name="asterisk">*</string>
     <string name="sharp">#</string>
+    <string name="picture">拍照</string>
+    <string name="sure">确定</string>
+    <string name="cancle">取消</string>
+    <string name="content">content</string>
 </resources>
