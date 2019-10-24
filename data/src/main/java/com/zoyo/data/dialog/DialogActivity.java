@@ -15,7 +15,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.zoyo.data.R;
+import com.zoyo.data.dialog.base.BaseDialogFragment;
+import com.zoyo.data.dialog.base.DialogListener;
 import com.zoyo.data.dialog.impl.ConfirmDialogFragment;
+import com.zoyo.data.dialog.impl.GeneralDialogFragment;
 
 /**
  * @Description: java类作用描述
@@ -220,9 +223,41 @@ public class DialogActivity extends AppCompatActivity {
         timePickerDialog.show();
     }
 
-    public void confirm(View v) {
+    public void generalDialog(View v) {
 
-        ConfirmDialogFragment confirmationDialogFragment = new ConfirmDialogFragment();
+        BaseDialogFragment generalDialogFragment = new GeneralDialogFragment.Builder()
+                .setMessage("一般提示框")
+                .setCancelable(false)
+//                .setPositiveButtonListener("确定", new DialogListener.OnClickListener() {
+//                    @Override
+//                    public void onClick(BaseDialogFragment dialogFragment) {
+//                        dialogFragment.dismiss();
+//                    }
+//                })
+                .create();
+        generalDialogFragment.show(getSupportFragmentManager(), "dialog");
+
+    }
+
+    public void confirm(View v) {
+        BaseDialogFragment confirmationDialogFragment = new ConfirmDialogFragment.Builder()
+                .setMessage("message")
+                .setCancelable(false)
+                .setPositiveButtonListener("确定", new DialogListener.OnClickListener() {
+                    @Override
+                    public void onClick(BaseDialogFragment dialogFragment) {
+                        Toast.makeText(DialogActivity.this, "确定", Toast.LENGTH_SHORT).show();
+                        dialogFragment.dismiss();
+                    }
+                })
+                .setNegativeButtonListener("取消", new DialogListener.OnClickListener() {
+                    @Override
+                    public void onClick(BaseDialogFragment dialogFragment) {
+                        Toast.makeText(DialogActivity.this, "取消", Toast.LENGTH_SHORT).show();
+                        dialogFragment.dismiss();
+                    }
+                })
+                .create();
         confirmationDialogFragment.show(getSupportFragmentManager(), "dialog");
     }
 

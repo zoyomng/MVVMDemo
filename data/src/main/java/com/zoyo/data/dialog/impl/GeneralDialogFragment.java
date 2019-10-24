@@ -10,21 +10,18 @@ import com.zoyo.data.dialog.base.BaseDialogFragment;
 import com.zoyo.data.dialog.base.DialogListener;
 
 /**
- * @Description: 确认弹出框
- * @CreateDate: 2019/10/16 10:09
+ * @Description: 一般的提示框
+ * @CreateDate: 2019/10/16 14:14
  */
-public class ConfirmDialogFragment extends BaseDialogFragment {
+public class GeneralDialogFragment extends BaseDialogFragment {
+
     private DialogListener.OnClickListener mPositiveButtonListener;
     private CharSequence mPositiveButtonText;
-    private DialogListener.OnClickListener mNegativeButtonListener;
-    private CharSequence mNegativeButtonText;
     private CharSequence mMessage;
     private boolean cancelable;
 
-    private ConfirmDialogFragment(Builder builder) {
+    private GeneralDialogFragment(Builder builder) {
         this.mMessage = builder.message;
-        this.mNegativeButtonListener = builder.negativeButtonListener;
-        this.mNegativeButtonText = builder.negativeText;
         this.mPositiveButtonListener = builder.positiveButtonListener;
         this.mPositiveButtonText = builder.positiveText;
         this.cancelable = builder.cancelable;
@@ -32,46 +29,44 @@ public class ConfirmDialogFragment extends BaseDialogFragment {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.dialog_confirm;
+        return R.layout.dialog_general;
     }
 
     @Override
     protected void initialize() {
         super.initialize();
-
-        TextView tvNegative = (TextView) findViewById(R.id.tv_negative);
         TextView tvPositive = (TextView) findViewById(R.id.tv_positive);
         TextView tvMessage = (TextView) findViewById(R.id.tv_message);
-        tvNegative.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mNegativeButtonListener != null) {
-                    mNegativeButtonListener.onClick(ConfirmDialogFragment.this);
+
+        if (mPositiveButtonListener != null) {
+            tvPositive.setVisibility(View.VISIBLE);
+            tvPositive.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mPositiveButtonListener != null) {
+                        mPositiveButtonListener.onClick(GeneralDialogFragment.this);
+                    }
                 }
-            }
-        });
-        tvPositive.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mPositiveButtonListener != null) {
-                    mPositiveButtonListener.onClick(ConfirmDialogFragment.this);
+            });
+            tvPositive.setText(mPositiveButtonText);
+        } else {
+            tvPositive.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    dismiss();
                 }
-            }
-        });
-        tvNegative.setText(mNegativeButtonText);
-        tvPositive.setText(mPositiveButtonText);
+            }, 3000);
+            tvPositive.setVisibility(View.GONE);
+        }
+
         tvMessage.setText(mMessage);
-
         setCancelable(cancelable);
-
     }
 
     public static class Builder {
 
         private CharSequence positiveText;
         private DialogListener.OnClickListener positiveButtonListener;
-        private CharSequence negativeText;
-        private DialogListener.OnClickListener negativeButtonListener;
         private CharSequence message;
         private boolean cancelable;
 
@@ -86,19 +81,13 @@ public class ConfirmDialogFragment extends BaseDialogFragment {
             return this;
         }
 
-        public Builder setNegativeButtonListener(CharSequence text, DialogListener.OnClickListener negativeButtonListener) {
-            this.negativeText = text;
-            this.negativeButtonListener = negativeButtonListener;
-            return this;
-        }
-
         public Builder setCancelable(boolean cancelable) {
             this.cancelable = cancelable;
             return this;
         }
 
         public BaseDialogFragment create() {
-            return new ConfirmDialogFragment(this);
+            return new GeneralDialogFragment(this);
         }
 
     }

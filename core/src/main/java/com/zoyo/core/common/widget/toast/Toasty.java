@@ -90,6 +90,10 @@ public class Toasty {
     /**
      * @param text 如果是字符串资源:context.getText(stringRes)
      */
+    public static Toast info(@NonNull Context context, @NonNull CharSequence text) {
+        return build(context, text, ToastyUtil.getDrawable(context, R.drawable.ic_info_outline_white_24dp), R.color.infoColor, Toast.LENGTH_SHORT);
+    }
+
     public static Toast info(@NonNull Context context, @NonNull CharSequence text, int duration) {
         return build(context, text, ToastyUtil.getDrawable(context, R.drawable.ic_info_outline_white_24dp), R.color.infoColor, duration);
     }
