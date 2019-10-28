@@ -1,12 +1,7 @@
 package com.zoyo.core.mvvm.binding.viewadapter.recyclerview;
 
-import androidx.annotation.LayoutRes;
 import androidx.databinding.BindingAdapter;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.zoyo.core.mvvm.binding.adapter.recyclerview.BaseAdapter;
-
-import java.util.List;
 
 public class ViewAdapter {
 
@@ -46,12 +41,12 @@ public class ViewAdapter {
      * @param data
      * @param <T>
      */
-    @BindingAdapter(value = {"itemLayoutRes", "variableId", "data", "layoutManager"})
-    public static <T> void setAdapter(RecyclerView recyclerView, @LayoutRes int itemLayoutRes, int variableId, List<T> data, RecyclerView.LayoutManager layoutManager) {
-        if (recyclerView.getAdapter() == null) {
-            BaseAdapter<T> tBaseAdapter = new BaseAdapter<>(itemLayoutRes, variableId, data);
-            recyclerView.setLayoutManager(layoutManager);
-            recyclerView.setAdapter(tBaseAdapter);
-        }
-    }
+//    @BindingAdapter(value = {"itemLayoutRes", "variableId", "data", "layoutManager"})
+//    public static <T> void setAdapter(RecyclerView recyclerView, @LayoutRes int itemLayoutRes, int variableId, List<T> data, RecyclerView.LayoutManager layoutManager) {
+//        if (recyclerView.getAdapter() == null) {
+//            BaseAdapter<T> tBaseAdapter = new BaseAdapter<>(itemLayoutRes, variableId, data);
+//            recyclerView.setLayoutManager(layoutManager);
+//            recyclerView.setAdapter(tBaseAdapter);
+//        }
+//    }
 }

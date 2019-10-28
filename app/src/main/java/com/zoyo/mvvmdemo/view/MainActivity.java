@@ -12,6 +12,7 @@ import com.zoyo.core.mvvm.base.BaseActivity;
 import com.zoyo.data.MultiLayoutActivity;
 import com.zoyo.data.dialog.DialogActivity;
 import com.zoyo.data.motionlayout.ui.ConstraintActivity;
+import com.zoyo.data.navigation.NavHostActivity;
 import com.zoyo.mvvmdemo.BR;
 import com.zoyo.mvvmdemo.R;
 import com.zoyo.mvvmdemo.viewModel.MainViewModel;
@@ -69,6 +70,9 @@ public class MainActivity extends BaseActivity<MainViewModel> {
                         break;
                     case 7:
                         startActivity(new Intent(MainActivity.this, DialogActivity.class));
+                        break;
+                    case 8:
+                        startActivity(new Intent(MainActivity.this, NavHostActivity.class));
                         break;
 
                     default:

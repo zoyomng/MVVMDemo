@@ -11,5 +11,6 @@
         <activity android:name=".motionlayout.ui.FragmentExampleActivity" />
         <activity android:name=".motionlayout.ui.YouTubeActivity" />
         <activity android:name=".dialog.DialogActivity" />
+        <activity android:name=".navigation.NavHostActivity" />
     </application>
 </manifest>

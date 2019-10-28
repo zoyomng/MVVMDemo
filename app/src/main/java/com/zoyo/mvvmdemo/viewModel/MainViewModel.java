@@ -72,6 +72,7 @@ public class MainViewModel extends BaseViewModel<MainRepository> {
         itemBeans.add(new ItemBean("MotionLayout使用介绍", Constants.BG_COLORS[5]));
         itemBeans.add(new ItemBean("Toast", Constants.BG_COLORS[6]));
         itemBeans.add(new ItemBean("DialogFragment的使用", Constants.BG_COLORS[7]));
+        itemBeans.add(new ItemBean("Android原生组件Navigation的使用", Constants.BG_COLORS[8]));
 
         return itemBeans;
     }
