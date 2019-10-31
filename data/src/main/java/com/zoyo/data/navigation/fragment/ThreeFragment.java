@@ -1,4 +1,4 @@
-package com.zoyo.data.navigation;
+package com.zoyo.data.navigation.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -28,6 +28,7 @@ public class ThreeFragment extends Fragment {
         view.findViewById(R.id.button22).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //直接导航到Fragment
                 Navigation.findNavController(v).navigate(R.id.action_threeFragment_to_oneFragment);
             }
         });

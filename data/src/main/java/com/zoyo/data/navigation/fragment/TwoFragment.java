@@ -1,4 +1,4 @@
-package com.zoyo.data.navigation;
+package com.zoyo.data.navigation.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,20 +16,25 @@ import com.zoyo.data.R;
  * @Description: java类作用描述
  * @CreateDate: 2019/10/25 9:35
  */
-public class OneFragment extends Fragment {
+public class TwoFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragmnet_navigation_one, container, false);
+        return inflater.inflate(R.layout.fragmnet_navigation_two, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        view.findViewById(R.id.button24).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.button23).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.action_oneFragment_to_twoFragment);
+                Navigation.findNavController(v).navigateUp();
+            }
+        });view.findViewById(R.id.button25).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.action_twoFragment_to_threeFragment);
             }
         });
     }

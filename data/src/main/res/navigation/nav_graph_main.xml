@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/oneFragment"
-        android:name="com.zoyo.data.navigation.OneFragment"
+        android:name="com.zoyo.data.navigation.fragment.OneFragment"
         android:label="OneFragment" >
         <action
             android:id="@+id/action_oneFragment_to_twoFragment"
@@ -13,7 +13,7 @@
     </fragment>
     <fragment
         android:id="@+id/twoFragment"
-        android:name="com.zoyo.data.navigation.TwoFragment"
+        android:name="com.zoyo.data.navigation.fragment.TwoFragment"
         android:label="TwoFragment" >
         <action
             android:id="@+id/action_twoFragment_to_threeFragment"
@@ -21,10 +21,22 @@
     </fragment>
     <fragment
         android:id="@+id/threeFragment"
-        android:name="com.zoyo.data.navigation.ThreeFragment"
+        android:name="com.zoyo.data.navigation.fragment.ThreeFragment"
         android:label="ThreeFragment" >
         <action
             android:id="@+id/action_threeFragment_to_oneFragment"
             app:destination="@id/oneFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/fourFragment"
+        android:name="com.zoyo.data.navigation.fragment.FourFragment"
+        android:label="FourFragment" />
+    <fragment
+        android:id="@+id/fiveFragment"
+        android:name="com.zoyo.data.navigation.fragment.FiveFragment"
+        android:label="FiveFragment" />
+    <fragment
+        android:id="@+id/sixFragment"
+        android:name="com.zoyo.data.navigation.fragment.SixFragment"
+        android:label="SixFragment" />
 </navigation>
