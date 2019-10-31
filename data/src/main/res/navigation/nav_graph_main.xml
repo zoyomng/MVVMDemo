@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--app:startDestination="@id/oneFragment"默认目的地,默认显示-->
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph_main"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_main"
     app:startDestination="@id/oneFragment">
 
     <fragment
         android:id="@+id/oneFragment"
         android:name="com.zoyo.data.navigation.fragment.OneFragment"
-        android:label="OneFragment" >
+        android:label="OneFragment">
         <action
             android:id="@+id/action_oneFragment_to_twoFragment"
             app:destination="@id/twoFragment" />
@@ -14,7 +17,7 @@
     <fragment
         android:id="@+id/twoFragment"
         android:name="com.zoyo.data.navigation.fragment.TwoFragment"
-        android:label="TwoFragment" >
+        android:label="TwoFragment">
         <action
             android:id="@+id/action_twoFragment_to_threeFragment"
             app:destination="@id/threeFragment" />
@@ -22,7 +25,7 @@
     <fragment
         android:id="@+id/threeFragment"
         android:name="com.zoyo.data.navigation.fragment.ThreeFragment"
-        android:label="ThreeFragment" >
+        android:label="ThreeFragment">
         <action
             android:id="@+id/action_threeFragment_to_oneFragment"
             app:destination="@id/oneFragment" />
