@@ -13,6 +13,12 @@
         <action
             android:id="@+id/action_oneFragment_to_twoFragment"
             app:destination="@id/twoFragment" />
+
+        <!-- 接收参数名称及默认值-->
+        <argument
+            android:name="tag"
+            android:defaultValue="zero"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/twoFragment"

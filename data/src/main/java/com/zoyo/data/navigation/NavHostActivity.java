@@ -56,7 +56,6 @@ public class NavHostActivity extends AppCompatActivity {
         assert navHostFragment != null;
         NavController navController = navHostFragment.getNavController();
 
-
         //设置ToolBar,DrawerLayout的关联
         setupActionBar(navController);
         //设置DrawerLayout里面NavigationView的关联

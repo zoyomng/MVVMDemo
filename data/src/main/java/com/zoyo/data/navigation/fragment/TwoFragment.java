@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -26,12 +27,17 @@ public class TwoFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        String tag = getArguments().getString("tag");
+        TextView textView = (TextView) view.findViewById(R.id.textView16);
+        textView.setText(tag);
+
         view.findViewById(R.id.button23).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(v).navigateUp();
             }
-        });view.findViewById(R.id.button25).setOnClickListener(new View.OnClickListener() {
+        });
+        view.findViewById(R.id.button25).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(v).navigate(R.id.action_twoFragment_to_threeFragment);

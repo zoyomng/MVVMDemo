@@ -12,5 +12,6 @@
         <activity android:name=".motionlayout.ui.YouTubeActivity" />
         <activity android:name=".dialog.DialogActivity" />
         <activity android:name=".navigation.NavHostActivity" />
+        <activity android:name=".dataformat.DataFormatActivity" />
     </application>
 </manifest>

@@ -13,12 +13,20 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.zoyo.data.R;
+import com.zoyo.data.dialog.adapter.BottomSheetAdapter;
 import com.zoyo.data.dialog.base.BaseDialogFragment;
 import com.zoyo.data.dialog.base.DialogListener;
 import com.zoyo.data.dialog.impl.ConfirmDialogFragment;
 import com.zoyo.data.dialog.impl.GeneralDialogFragment;
+import com.zoyo.data.dialog.impl.MyBottomSheetDialogFragment;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * @Description: java类作用描述
@@ -259,6 +267,37 @@ public class DialogActivity extends AppCompatActivity {
                 })
                 .create();
         confirmationDialogFragment.show(getSupportFragmentManager(), "dialog");
+    }
+
+    public void bottomPopDialog(View v) {
+
+        final BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(DialogActivity.this);
+        bottomSheetDialog.setCancelable(true);
+        bottomSheetDialog.setContentView(R.layout.dialog_bottom_sheet);
+        bottomSheetDialog.setCanceledOnTouchOutside(true);
+        bottomSheetDialog.setTitle("BottomSheetDialog");
+
+        RecyclerView recyclerview = bottomSheetDialog.findViewById(R.id.recycler_view);
+        recyclerview.setLayoutManager(new LinearLayoutManager(DialogActivity.this));
+        BottomSheetAdapter bottomSheetAdapter = new BottomSheetAdapter(Arrays.asList(items));
+        bottomSheetAdapter.setOnItemClickListener(new BottomSheetAdapter.OnItemClickListener() {
+
+            @Override
+            public void onItemClick() {
+                Toast.makeText(DialogActivity.this, "点击了", Toast.LENGTH_SHORT).show();
+                bottomSheetDialog.dismiss();
+            }
+        });
+        recyclerview.setAdapter(bottomSheetAdapter);
+        bottomSheetDialog.show();
+    }
+
+    public void bottomSheetDialogFragment(View v) {
+        MyBottomSheetDialogFragment fragment = new MyBottomSheetDialogFragment();
+        Bundle bundle = new Bundle();
+        bundle.putStringArray("items", items);
+        fragment.setArguments(bundle);
+        fragment.show(getSupportFragmentManager(), "dialog");
     }
 
 }

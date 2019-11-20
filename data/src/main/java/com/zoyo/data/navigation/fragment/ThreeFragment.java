@@ -22,6 +22,7 @@ public class ThreeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragmnet_navigation_three, container, false);
     }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -29,7 +30,9 @@ public class ThreeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //直接导航到Fragment
-                Navigation.findNavController(v).navigate(R.id.action_threeFragment_to_oneFragment);
+                Bundle bundle = new Bundle();
+                bundle.putString("tag", "three");
+                Navigation.findNavController(v).navigate(R.id.action_threeFragment_to_oneFragment, bundle);
             }
         });
     }

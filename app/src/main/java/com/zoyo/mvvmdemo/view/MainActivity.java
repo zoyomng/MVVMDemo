@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer;
 
 import com.zoyo.core.mvvm.base.BaseActivity;
 import com.zoyo.data.MultiLayoutActivity;
+import com.zoyo.data.dataformat.DataFormatActivity;
 import com.zoyo.data.dialog.DialogActivity;
 import com.zoyo.data.motionlayout.ui.ConstraintActivity;
 import com.zoyo.data.navigation.NavHostActivity;
@@ -73,6 +74,9 @@ public class MainActivity extends BaseActivity<MainViewModel> {
                         break;
                     case 8:
                         startActivity(new Intent(MainActivity.this, NavHostActivity.class));
+                        break;
+                    case 9:
+                        startActivity(new Intent(MainActivity.this, DataFormatActivity.class));
                         break;
 
                     default:
