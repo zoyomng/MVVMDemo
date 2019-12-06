@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.Observer;
@@ -14,7 +15,7 @@ import com.zoyo.core.common.multistatusmanager.MultiStatusManager;
 import com.zoyo.core.common.multistatusmanager.OnStatusChildClickListener;
 import com.zoyo.core.mvvm.utils.TypeUtil;
 
-public abstract class BaseActivity<VM extends BaseViewModel> extends RxAppCompatActivity implements IBaseView {
+public abstract class BaseActivity<VM extends BaseViewModel> extends AppCompatActivity implements IBaseView {
 
     public VM viewModel;
     public ViewDataBinding dataBinding;
@@ -54,7 +55,7 @@ public abstract class BaseActivity<VM extends BaseViewModel> extends RxAppCompat
         //让ViewModel拥有View的生命周期感应
         getLifecycle().addObserver(viewModel);
         //注入RxLifecycle生命周期
-        viewModel.injectLifecycleProvider(this);
+//        viewModel.injectLifecycleProvider(this);
     }
 
     private VM initViewModel() {

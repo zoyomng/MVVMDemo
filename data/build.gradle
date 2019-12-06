@@ -34,8 +34,8 @@ dependencies {
     implementation rootProject.ext.dependencies["preference"]
     implementation rootProject.ext.dependencies["lottie"]
     implementation rootProject.ext.dependencies["glide"]
-    implementation 'androidx.navigation:navigation-fragment:2.2.0-beta01'
-    implementation 'androidx.navigation:navigation-ui:2.2.0-beta01'
+    implementation 'androidx.navigation:navigation-fragment:2.2.0-rc02'
+    implementation 'androidx.navigation:navigation-ui:2.2.0-rc02'
 
 
 }

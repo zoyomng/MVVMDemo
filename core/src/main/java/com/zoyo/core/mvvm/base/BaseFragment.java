@@ -8,12 +8,13 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.zoyo.core.mvvm.utils.TypeUtil;
 
 
-public abstract class BaseFragment<VM extends BaseViewModel> extends RxFragment implements IBaseView {
+public abstract class BaseFragment<VM extends BaseViewModel> extends Fragment implements IBaseView {
 
     private ViewDataBinding dataBinding;
     private VM viewModel;
@@ -39,7 +40,7 @@ public abstract class BaseFragment<VM extends BaseViewModel> extends RxFragment 
         viewModel = initViewModel();
         dataBinding.setVariable(viewModelId, viewModel);
         getLifecycle().addObserver(viewModel);
-        viewModel.injectLifecycleProvider(this);
+//        viewModel.injectLifecycleProvider(this);
     }
 
     private VM initViewModel() {

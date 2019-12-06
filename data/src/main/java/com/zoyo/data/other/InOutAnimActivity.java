@@ -1,4 +1,4 @@
-package com.zoyo.data;
+package com.zoyo.data.other;
 
 /**
  * @Description: Activity跳转动画

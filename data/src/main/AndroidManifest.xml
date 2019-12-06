@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <application>
         <activity android:name=".motionlayout.ui.ConstraintActivity" />
-        <activity android:name=".MultiLayoutActivity" />
+        <activity android:name=".other.MultiLayoutActivity" />
         <activity android:name=".motionlayout.ui.MotionLayoutActivity" />
         <activity android:name=".motionlayout.ui.ViewPagerActivity" />
         <activity android:name=".motionlayout.ui.FragmentExampleActivity" />
@@ -13,5 +13,6 @@
         <activity android:name=".dialog.DialogActivity" />
         <activity android:name=".navigation.NavHostActivity" />
         <activity android:name=".dataformat.DataFormatActivity" />
+        <activity android:name=".chart.ChartActivity" />
     </application>
 </manifest>

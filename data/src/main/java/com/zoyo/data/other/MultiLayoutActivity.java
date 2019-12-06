@@ -1,4 +1,4 @@
-package com.zoyo.data;
+package com.zoyo.data.other;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
