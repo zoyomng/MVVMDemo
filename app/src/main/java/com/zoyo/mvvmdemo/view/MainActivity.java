@@ -9,12 +9,12 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.Observer;
 
 import com.zoyo.core.mvvm.base.BaseActivity;
-import com.zoyo.data.other.MultiLayoutActivity;
 import com.zoyo.data.chart.ChartActivity;
 import com.zoyo.data.dataformat.DataFormatActivity;
 import com.zoyo.data.dialog.DialogActivity;
 import com.zoyo.data.motionlayout.ui.ConstraintActivity;
 import com.zoyo.data.navigation.NavHostActivity;
+import com.zoyo.data.other.MultiLayoutActivity;
 import com.zoyo.mvvmdemo.BR;
 import com.zoyo.mvvmdemo.R;
 import com.zoyo.mvvmdemo.viewModel.MainViewModel;

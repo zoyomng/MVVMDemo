@@ -10,12 +10,13 @@ import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 import com.zoyo.core.common.constants.Constants;
 import com.zoyo.core.common.multistatusmanager.MultiStatusManager;
 import com.zoyo.core.common.multistatusmanager.OnStatusChildClickListener;
 import com.zoyo.core.mvvm.utils.TypeUtil;
 
-public abstract class BaseActivity<VM extends BaseViewModel> extends AppCompatActivity implements IBaseView {
+public abstract class BaseActivity<VM extends BaseViewModel> extends RxAppCompatActivity implements IBaseView {
 
     public VM viewModel;
     public ViewDataBinding dataBinding;
