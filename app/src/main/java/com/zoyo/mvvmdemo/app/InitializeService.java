@@ -1,5 +1,6 @@
 package com.zoyo.mvvmdemo.app;
 
+import android.app.Application;
 import android.app.IntentService;
 import android.content.Intent;
 
@@ -11,13 +12,11 @@ import androidx.annotation.Nullable;
 public class InitializeService extends IntentService {
     private static final String ACTION_INIT = "initApplication";
 
-    MyApplication myApplication;
-
     public InitializeService() {
         super("InitializeService");
     }
 
-    public static void start(MyApplication myApplication) {
+    public static void start(Application myApplication) {
         Intent intent = new Intent(myApplication, InitializeService.class);
         intent.setAction(ACTION_INIT);
         myApplication.startService(intent);

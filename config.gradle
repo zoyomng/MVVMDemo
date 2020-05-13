@@ -47,9 +47,6 @@ ext {
             //other
             "gson"                       : 'com.google.code.gson:gson:2.8.5',
 
-            //屏幕适配
-            "autosize"                   : 'me.jessyan:autosize:1.1.2',
-
     ]
 
 }

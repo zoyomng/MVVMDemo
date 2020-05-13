@@ -34,8 +34,42 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':core')
-    implementation project(path: ':data')
+//implementation-引入的依赖只能本Module中使用,api使用本Module作为依赖的Module也可以使用
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    androidTestImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     testImplementation 'junit:junit:4.12'
+
+    implementation rootProject.ext.dependencies["appcompat"]
+
+    api rootProject.ext.dependencies["material"]
+    api rootProject.ext.dependencies["constraintlayout"]
+    api rootProject.ext.dependencies["recyclerview"]
+
+    api rootProject.ext.dependencies["lifecycle-extensions"]
+    annotationProcessor rootProject.ext.dependencies["lifecycle-compiler"]
+
+    api rootProject.ext.dependencies["rxlifecycle"]
+    api rootProject.ext.dependencies["rxlifecycle-components"]
+    api rootProject.ext.dependencies["rxlifecycle-android"]
+
+    api rootProject.ext.dependencies["rxjava2"]
+    api rootProject.ext.dependencies["rxandroid"]
+    api rootProject.ext.dependencies["rxpermissions"]
+
+    api rootProject.ext.dependencies["okhttp3"]
+    api rootProject.ext.dependencies["okhttp3-logging-interceptor"]
+
+    api rootProject.ext.dependencies["retrofit2"]
+    api rootProject.ext.dependencies["retrofit2-converter-gson"]
+    api rootProject.ext.dependencies["retrofit2-adapter-rxjava2"]
+
+    api rootProject.ext.dependencies["gson"]
+
+    api rootProject.ext.dependencies["glide"]
+
+    implementation project(path: ':data')
 
 }
